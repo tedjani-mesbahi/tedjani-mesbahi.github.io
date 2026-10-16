@@ -34,26 +34,38 @@ Le navigateur se souvient de la connexion. Pour changer la langue de l'interface
    - **Catégorie** (Médias, Projet, Événement, Distinction, Soutenance…)
    - **Résumé (français)** : deux ou trois phrases.
 3. Facultatif : titre et résumé en anglais (sinon le français s'affiche sur la version anglaise), texte complet, lien vers la source, image.
-4. Cochez **À la une** pour une actualité importante.
-5. Cliquez sur **Enregistrer** (*Save*).
+4. Ajoutez une **Photo** (format paysage de préférence) et son **Crédit photo** : l'actualité apparaît alors dans le diaporama « À la une » en haut des actualités.
+5. Cochez **À la une** pour placer une actualité dans le diaporama même sans photo.
+6. Cliquez sur **Enregistrer** (*Save*).
 
 Les six actualités les plus récentes apparaissent sur la page d'accueil ; toutes sont sur la page « Actualités ». Les actualités de catégorie **Médias** et **Action grand public** alimentent aussi la rubrique « Médias » (renseignez le champ **Média ou lieu**, par exemple « France 2 »).
 
 ---
 
-## 3. Écrire un billet de blog
+## 3. Galerie photos (bande défilante)
+
+1. Menu **Galerie photos** → **Nouveau**.
+2. Ajoutez la **Photo**, une **Légende** (français, et anglais si possible), la **date** et le **crédit photo**.
+3. Facultatif : un **Lien** vers une actualité du site (ex. : `news/2026-06-01-plateforme-vieillissement-batteries/`) ou une adresse `https://…`.
+4. Enregistrez. Les photos s'affichent de la plus récente à la plus ancienne ; un clic sur une photo l'agrandit.
+
+Pour retirer une photo sans la supprimer, cochez **Masquer du site**.
+
+---
+
+## 4. Écrire un billet de blog
 
 1. Menu **Blog** → **Nouveau**.
 2. Titre, date, **langue du billet** (français ou anglais), chapeau, texte.
 3. Pour préparer un billet sans le publier, cochez **Brouillon** ; décochez-le le jour de la publication.
 
-La rubrique Blog apparaît sur le site dès qu'un premier billet est publié.
+La rubrique Blog est visible sur la page d'accueil ; tant qu'aucun billet n'est publié, elle affiche un message « bientôt ».
 
 Mise en forme du texte : utilisez la barre d'outils (gras, italique, titres, listes, liens, images).
 
 ---
 
-## 4. Publications
+## 5. Publications
 
 - Les nouvelles publications déposées sur **HAL** sont ajoutées **automatiquement chaque lundi**.
 - Pour en ajouter une à la main : **Publications** → **Nouveau** (titre, auteurs séparés par des virgules, année, type, revue, DOI).
@@ -63,7 +75,7 @@ Mise en forme du texte : utilisez la barre d'outils (gras, italique, titres, lis
 
 ---
 
-## 5. Profil, photo, CV et chiffres
+## 6. Profil, photo, CV et chiffres
 
 Menu **Réglages** → **Profil et coordonnées** :
 
@@ -74,7 +86,7 @@ Menu **Réglages** → **Profil et coordonnées** :
 
 ---
 
-## 6. Réorganiser ou masquer les rubriques
+## 7. Réorganiser ou masquer les rubriques
 
 Menu **Réglages** → **Rubriques de la page d'accueil** :
 
@@ -86,7 +98,7 @@ La rubrique **Enseignement** est masquée au départ : complétez d'abord **Page
 
 ---
 
-## 7. Autres textes
+## 8. Autres textes
 
 Menu **Pages** :
 
@@ -97,7 +109,7 @@ Menu **Pages** :
 
 ---
 
-## 8. Bon à savoir
+## 9. Bon à savoir
 
 - Rien n'est perdu : chaque modification est conservée dans l'historique GitHub et peut être annulée.
 - Images : formats JPG, PNG ou WebP, idéalement moins de 1 Mo.

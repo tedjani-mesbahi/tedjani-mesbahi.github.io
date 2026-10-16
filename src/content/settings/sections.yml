@@ -25,6 +25,10 @@ sections:
     visible: true
     title_fr: Équipe & thèses
     title_en: Team & theses
+  - id: gallery
+    visible: true
+    title_fr: Galerie
+    title_en: Gallery
   - id: media
     visible: true
     title_fr: Médias

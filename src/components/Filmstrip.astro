@@ -1,0 +1,128 @@
+---
+// Photo gallery as a film strip: swipe, drag or use the arrows; a photo opens in a lightbox.
+import { t, pick, href, withBase, type Lang } from '../lib/i18n';
+
+interface Props { lang: Lang; items: Record<string, any>[] }
+const { lang, items } = Astro.props;
+const s = t(lang);
+const linkOf = (g: any) => (!g.link ? '' : /^https?:/.test(g.link) ? g.link : href(lang, g.link));
+---
+{items.length > 0 && (
+  <div class="filmstrip" data-filmstrip>
+    <div class="filmstrip__band">
+      <ul class="filmstrip__track" data-track>
+        {items.map((g, i) => (
+          <li class="frame">
+            <button class="frame__open" type="button" data-index={i} aria-label={`${s.open_photo} : ${pick(g, 'caption', lang)}`}>
+              <img src={withBase(g.image)} alt={pick(g, 'caption', lang)} loading="lazy" decoding="async" />
+            </button>
+            <p class="frame__caption">
+              <span>{pick(g, 'caption', lang)}</span>
+              {g.date && <span class="num frame__year">{String(g.date).slice(0, 4)}</span>}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="filmstrip__nav">
+      <button class="round-btn" type="button" data-prev aria-label={s.prev}><span aria-hidden="true">←</span></button>
+      <button class="round-btn" type="button" data-next aria-label={s.next}><span aria-hidden="true">→</span></button>
+    </div>
+    <dialog class="lightbox" data-lightbox aria-label={s.open_photo}>
+      <figure>
+        <img data-lb-img src={withBase(items[0].image)} alt={pick(items[0], 'caption', lang)} />
+        <figcaption>
+          <span data-lb-caption></span>
+          <span class="lightbox__meta"><span data-lb-credit></span> <a data-lb-link href="#">{s.read_more}</a></span>
+        </figcaption>
+      </figure>
+      <button class="round-btn lightbox__prev" type="button" data-lb-prev aria-label={s.prev}><span aria-hidden="true">←</span></button>
+      <button class="round-btn lightbox__next" type="button" data-lb-next aria-label={s.next}><span aria-hidden="true">→</span></button>
+      <button class="round-btn lightbox__close" type="button" data-lb-close aria-label={s.close}><span aria-hidden="true">✕</span></button>
+    </dialog>
+    <script type="application/json" data-items set:html={JSON.stringify(items.map((g) => ({
+      src: withBase(g.image),
+      caption: pick(g, 'caption', lang),
+      credit: g.credit ? `${s.photo_credit} : ${g.credit}` : '',
+      link: linkOf(g),
+    })))} />
+  </div>
+)}
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll<HTMLElement>('[data-filmstrip]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-track]');
+    const dialog = root.querySelector<HTMLDialogElement>('[data-lightbox]');
+    const data = JSON.parse(root.querySelector('[data-items]')?.textContent || '[]') as { src: string; caption: string; credit: string; link: string }[];
+    if (!track) return;
+
+    const step = () => (track.querySelector<HTMLElement>('.frame')?.offsetWidth || 300) + 16;
+    root.querySelector('[data-prev]')?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }));
+    root.querySelector('[data-next]')?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }));
+
+    // Drag to scroll with a mouse (touch already scrolls natively).
+    let startX = 0;
+    let startLeft = 0;
+    let dragging = false;
+    let moved = false;
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      dragging = true;
+      moved = false;
+      startX = e.clientX;
+      startLeft = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 5) {
+        moved = true;
+        track.classList.add('is-dragging');
+      }
+      if (moved) track.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', () => {
+      dragging = false;
+      track.classList.remove('is-dragging');
+    });
+
+    // Lightbox
+    if (!dialog) return;
+    const img = dialog.querySelector<HTMLImageElement>('[data-lb-img]')!;
+    const caption = dialog.querySelector<HTMLElement>('[data-lb-caption]')!;
+    const credit = dialog.querySelector<HTMLElement>('[data-lb-credit]')!;
+    const link = dialog.querySelector<HTMLAnchorElement>('[data-lb-link]')!;
+    let current = 0;
+    const show = (i: number) => {
+      current = (i + data.length) % data.length;
+      const item = data[current];
+      img.src = item.src;
+      img.alt = item.caption;
+      caption.textContent = item.caption;
+      credit.textContent = item.credit;
+      link.hidden = !item.link;
+      if (item.link) link.href = item.link;
+    };
+    root.querySelectorAll<HTMLButtonElement>('.frame__open').forEach((button) => {
+      button.addEventListener('click', (e) => {
+        if (moved) {
+          e.preventDefault();
+          return;
+        }
+        show(Number(button.dataset.index));
+        dialog.showModal();
+      });
+    });
+    dialog.querySelector('[data-lb-prev]')?.addEventListener('click', () => show(current - 1));
+    dialog.querySelector('[data-lb-next]')?.addEventListener('click', () => show(current + 1));
+    dialog.querySelector('[data-lb-close]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') show(current + 1);
+      if (e.key === 'ArrowLeft') show(current - 1);
+    });
+  });
+</script>

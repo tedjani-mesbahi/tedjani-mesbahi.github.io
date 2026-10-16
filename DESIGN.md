@@ -45,6 +45,11 @@ Restrained: neutrals plus one blue accent. Light theme by default (readers at de
 - **Icon links**: monochrome inline SVG glyphs (email, Google Scholar, ORCID, LinkedIn, ResearchGate, HAL), 40 px hit area.
 - Buttons and inputs: 8 px radius, 1 px border, accent fill for primary.
 
+## Photo sliders (added on request)
+
+- **News slider ("À la une")**: bordered card at the top of News; photo left, headline panel right (stacked on mobile); arrows, dots, pause button, swipe, keyboard; auto-advance 7 s, off with reduced motion. News without a photo get a typographic poster (outlet name on the circuit grid).
+- **Gallery filmstrip**: dark film band (#15181d) with perforation rows, 4:3 frames with captions, snap scrolling, drag, arrows; click opens a native `<dialog>` lightbox.
+
 ## Motion
 
 One authored moment: current flowing through the circuit drawing (dash offset along the wires, slow, infinite but subtle). Everything else is short color and shadow transitions. `prefers-reduced-motion` stops the flow.

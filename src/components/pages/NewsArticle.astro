@@ -12,7 +12,12 @@ const body = pick(item, 'body', lang);
   <p class="article-meta"><span class="tag">{s.categories[item.category] || s.categories.other}</span><time class="num" datetime={item.date}>{formatDate(item.date, lang)}</time>{item.outlet && <span>{item.outlet}</span>}</p>
 </PageHead>
 <div class="wrap page-body">
-  {item.image && <img class="article-cover" src={withBase(item.image)} alt="" />}
+  {item.image && (
+    <figure class="article-figure">
+      <img class="article-cover" src={withBase(item.image)} alt={pick(item, 'image_alt', lang) || ''} />
+      {item.image_credit && <figcaption>{s.photo_credit}{lang === 'fr' ? '\u00a0: ' : ': '}{item.image_credit}</figcaption>}
+    </figure>
+  )}
   <div class="prose">
     <p style="font-size:1.15rem">{pick(item, 'summary', lang)}</p>
     {body && <Fragment set:html={markdown(body)} />}

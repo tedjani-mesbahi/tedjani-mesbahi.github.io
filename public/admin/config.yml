@@ -125,8 +125,73 @@ collections:
         required: false
         hint: "Ex. : INSA Strasbourg"
       - name: image
-        label: Image
+        label: Photo
         widget: image
+        required: false
+        hint: Affichée dans le diaporama « À la une » et sur la page de l'actualité. Format paysage de préférence.
+      - name: image_credit
+        label: Crédit photo
+        widget: string
+        required: false
+        hint: "Ex. : INSA Strasbourg"
+      - name: image_alt_fr
+        label: Description de la photo (français)
+        widget: string
+        required: false
+      - name: image_alt_en
+        label: Description de la photo (anglais)
+        widget: string
+        required: false
+  - name: gallery
+    label: Galerie photos
+    label_singular: Photo
+    description: Photos affichées dans la galerie (bande défilante) de la page d'accueil, de la plus récente à la plus ancienne.
+    icon: photo_library
+    folder: src/content/gallery
+    format: yml
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: caption_fr
+    summary: "{{date}} · {{caption_fr}}"
+    thumbnail: image
+    sortable_fields:
+      fields:
+        - date
+        - caption_fr
+      default:
+        field: date
+        direction: descending
+    fields:
+      - name: image
+        label: Photo
+        widget: image
+      - name: caption_fr
+        label: Légende (français)
+        widget: string
+      - name: caption_en
+        label: Légende (anglais)
+        widget: string
+        required: false
+      - name: date
+        label: Date
+        widget: datetime
+        type: date
+        picker_utc: true
+      - name: credit
+        label: Crédit photo
+        widget: string
+        required: false
+        hint: "Ex. : INSA Strasbourg"
+      - name: link
+        label: Lien
+        widget: string
+        required: false
+        hint: "Facultatif. Une page du site (ex. : news/2026-06-01-plateforme-vieillissement-batteries/) ou une adresse https://"
+      - name: hidden
+        label: Masquer du site
+        widget: boolean
+        default: false
         required: false
   - name: blog
     label: Blog
@@ -832,6 +897,8 @@ collections:
                     value: about
                   - label: Enseignement
                     value: teaching
+                  - label: Galerie photos
+                    value: gallery
                   - label: Contact
                     value: contact
               - name: visible

@@ -4,6 +4,18 @@ export const DEFAULT_LANG: Lang = 'en';
 
 export const ui = {
   en: {
+    gallery_intro: 'Events, field work and the people behind the projects.',
+    slider_label: 'Highlights',
+    slide_of: (i: number, n: number) => `${i} of ${n}`,
+    prev: 'Previous',
+    next: 'Next',
+    pause: 'Pause',
+    play: 'Play',
+    go_to_slide: (i: number) => `Go to slide ${i}`,
+    photo_credit: 'Photo',
+    open_photo: 'Open photo',
+    blog_soon: 'The first posts are on their way: notes on batteries, safety and research life.',
+    blog_follow: 'Meanwhile, follow the latest news',
     theme_toggle: 'Switch light / dark theme',
     footer_links: 'Footer links',
     education: 'Degrees',
@@ -108,6 +120,18 @@ export const ui = {
     not_found_text: 'This page does not exist or has moved.',
   },
   fr: {
+    gallery_intro: 'Événements, terrain et les personnes derrière les projets.',
+    slider_label: 'À la une',
+    slide_of: (i: number, n: number) => `${i} sur ${n}`,
+    prev: 'Précédent',
+    next: 'Suivant',
+    pause: 'Pause',
+    play: 'Lecture',
+    go_to_slide: (i: number) => `Aller à la diapositive ${i}`,
+    photo_credit: 'Photo',
+    open_photo: 'Agrandir la photo',
+    blog_soon: 'Les premiers billets arrivent bientôt : notes sur les batteries, la sécurité et la vie de la recherche.',
+    blog_follow: 'En attendant, suivez les actualités',
     theme_toggle: 'Basculer thème clair / sombre',
     footer_links: 'Liens de pied de page',
     education: 'Diplômes',
@@ -225,9 +249,16 @@ export function pick(obj: Record<string, any> | undefined | null, key: string, l
   const order = lang === 'en' ? [`${key}_en`, `${key}_fr`, key] : [`${key}_fr`, key, `${key}_en`];
   for (const k of order) {
     const v = obj[k];
-    if (v !== undefined && v !== null && !(typeof v === 'string' && v.trim() === '') && !(Array.isArray(v) && v.length === 0)) return v;
+    if (v !== undefined && v !== null && !(typeof v === 'string' && v.trim() === '') && !(Array.isArray(v) && v.length === 0)) {
+      return lang === 'fr' && typeof v === 'string' ? frenchSpacing(v) : v;
+    }
   }
   return '';
+}
+
+/** French typography: non-breaking space before : ; ! ? » and after «, so lines never start with them. */
+export function frenchSpacing(text: string): string {
+  return text.replace(/ ([:;!?»])/g, '\u00a0$1').replace(/« /g, '«\u00a0');
 }
 
 /** Root-relative path for a page in a language, without the base path. */

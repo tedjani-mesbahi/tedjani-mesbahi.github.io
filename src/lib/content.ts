@@ -11,6 +11,7 @@ const newsFiles = import.meta.glob('/src/content/news/*.yml', { query: '?raw', i
 const projectFiles = import.meta.glob('/src/content/projects/*.yml', { query: '?raw', import: 'default', eager: true }) as Raw;
 const publicationFiles = import.meta.glob('/src/content/publications/*.yml', { query: '?raw', import: 'default', eager: true }) as Raw;
 const blogFiles = import.meta.glob('/src/content/blog/*.md', { query: '?raw', import: 'default', eager: true }) as Raw;
+const galleryFiles = import.meta.glob('/src/content/gallery/*.yml', { query: '?raw', import: 'default', eager: true }) as Raw;
 
 function safeParse(raw: string, path: string): Record<string, any> | null {
   try {
@@ -44,7 +45,7 @@ export const getResearch = () => setting('research');
 export const getTeam = () => setting('team');
 export const getTeaching = () => setting('teaching');
 
-export const SECTION_IDS = ['news', 'research', 'projects', 'publications', 'blog', 'team', 'media', 'about', 'teaching', 'contact'] as const;
+export const SECTION_IDS = ['news', 'research', 'projects', 'publications', 'blog', 'team', 'gallery', 'media', 'about', 'teaching', 'contact'] as const;
 
 export function getSections() {
   const data = setting('sections');
@@ -82,6 +83,16 @@ export function getProjects() {
     })
     .filter((p): p is Record<string, any> => !!p && !p.hidden && !!p.name)
     .sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+}
+
+export function getGallery() {
+  return Object.entries(galleryFiles)
+    .map(([path, raw]) => {
+      const data = safeParse(raw, path);
+      return data ? { ...data, slug: slugOf(path), date: isoDate(data.date) } : null;
+    })
+    .filter((g): g is Record<string, any> => !!g && !g.hidden && !!g.image)
+    .sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0) || String(b.date).localeCompare(String(a.date)));
 }
 
 export function getPublications() {

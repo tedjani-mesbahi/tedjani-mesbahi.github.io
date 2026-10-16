@@ -1,12 +1,14 @@
 ---
 import Section from '../Section.astro';
+import NewsSlider from '../NewsSlider.astro';
 import { t, pick, href, formatDate, type Lang } from '../../lib/i18n';
 
-interface Props { lang: Lang; title: string; items: Record<string, any>[]; alt?: boolean }
-const { lang, title, items, alt } = Astro.props;
+interface Props { lang: Lang; title: string; items: Record<string, any>[]; slides?: Record<string, any>[]; alt?: boolean }
+const { lang, title, items, slides = [], alt } = Astro.props;
 const s = t(lang);
 ---
 <Section id="news" title={title} intro={s.page_news_intro} moreHref={href(lang, 'news/')} moreLabel={s.all_news} alt={alt}>
+  <NewsSlider lang={lang} items={slides} />
   {items.length === 0 ? <p class="empty">{s.news_empty}</p> : (
     <ul class="news-list">
       {items.map((n) => (

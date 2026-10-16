@@ -13,11 +13,12 @@ Editor's guide (French): [GUIDE-EDITION.md](GUIDE-EDITION.md). Research notes an
 
 ```
 public/admin/        Sveltia CMS (index.html + config.yml, French labels)
-public/uploads/      Images and files uploaded from the CMS
+public/uploads/      Images and files uploaded from the CMS (news/ holds INSA event photos, credited)
 src/content/
   settings/          site.yml (profile), sections.yml (home order/visibility),
                      about.yml, research.yml, team.yml, teaching.yml
-  news/              one YAML file per news item (FR + EN fields)
+  news/              one YAML file per news item (FR + EN fields, optional photo)
+  gallery/           one YAML file per gallery photo (filmstrip on the home page)
   blog/              one Markdown file per post
   projects/          one YAML file per project
   publications/      one YAML file per publication

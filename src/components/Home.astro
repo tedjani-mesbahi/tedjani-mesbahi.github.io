@@ -10,15 +10,19 @@ import MediaSection from './home/MediaSection.astro';
 import AboutSection from './home/AboutSection.astro';
 import TeachingSection from './home/TeachingSection.astro';
 import ContactSection from './home/ContactSection.astro';
-import { getSections, getNews, getPosts } from '../lib/content';
+import GallerySection from './home/GallerySection.astro';
+import { getSections, getNews } from '../lib/content';
 import type { Lang } from '../lib/i18n';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
-const hasPosts = getPosts().length > 0;
 const hasMedia = getNews().some((n) => n.category === 'media' || n.category === 'outreach');
-const sections = getSections().filter((s) => s.visible && (s.id !== 'blog' || hasPosts) && (s.id !== 'media' || hasMedia));
-const news = getNews().slice(0, 6);
+const sections = getSections().filter((s) => s.visible && (s.id !== 'media' || hasMedia));
+const allNews = getNews();
+// Slider: the featured item(s) plus the most recent news that have a photo.
+const featured = allNews.filter((n) => n.featured);
+const slides = [...featured, ...allNews.filter((n) => n.image && !n.featured)].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
+const news = allNews.filter((n) => !slides.includes(n)).slice(0, 5);
 const titleOf = (sec: any) => (lang === 'fr' ? sec.title_fr : sec.title_en) || sec.title_fr || sec.id;
 const components: Record<string, any> = {
   research: ResearchSection,
@@ -30,12 +34,13 @@ const components: Record<string, any> = {
   about: AboutSection,
   teaching: TeachingSection,
   contact: ContactSection,
+  gallery: GallerySection,
 };
 ---
 <Profile lang={lang} />
 {sections.map((sec, i) => {
   const alt = i % 2 === 1;
-  if (sec.id === 'news') return <NewsSection lang={lang} title={titleOf(sec)} items={news} alt={alt} />;
+  if (sec.id === 'news') return <NewsSection lang={lang} title={titleOf(sec)} items={news} slides={slides} alt={alt} />;
   const Component = components[sec.id];
   return Component ? <Component lang={lang} title={titleOf(sec)} alt={alt} /> : null;
 })}

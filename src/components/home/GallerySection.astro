@@ -1,0 +1,16 @@
+---
+import Section from '../Section.astro';
+import Filmstrip from '../Filmstrip.astro';
+import { t, type Lang } from '../../lib/i18n';
+import { getGallery } from '../../lib/content';
+
+interface Props { lang: Lang; title: string; alt?: boolean }
+const { lang, title, alt } = Astro.props;
+const s = t(lang);
+const items = getGallery();
+---
+{items.length > 0 && (
+  <Section id="gallery" title={title} intro={s.gallery_intro} alt={alt}>
+    <Filmstrip lang={lang} items={items} />
+  </Section>
+)}

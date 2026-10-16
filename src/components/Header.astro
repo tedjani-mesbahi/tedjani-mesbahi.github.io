@@ -1,7 +1,6 @@
 ---
 import Icon from './Icon.astro';
 import { t, href, withBase, localePath, type Lang } from '../lib/i18n';
-import { getPosts } from '../lib/content';
 
 interface Props {
   lang: Lang;
@@ -13,11 +12,10 @@ interface Props {
 
 const { lang, path, sections, other, name } = Astro.props;
 const s = t(lang);
-const hasPosts = getPosts().length > 0;
 const pages: Record<string, string> = { news: 'news/', publications: 'publications/', blog: 'blog/' };
 const navIds = ['about', 'research', 'projects', 'publications', 'team', 'news', 'blog', 'teaching', 'contact'];
 const items = sections
-  .filter((sec) => sec.visible && navIds.includes(sec.id) && (sec.id !== 'blog' || hasPosts))
+  .filter((sec) => sec.visible && navIds.includes(sec.id))
   .sort((a, b) => navIds.indexOf(a.id) - navIds.indexOf(b.id))
   .map((sec) => ({
     id: sec.id,

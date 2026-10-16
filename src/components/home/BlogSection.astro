@@ -8,8 +8,13 @@ const { lang, title, alt } = Astro.props;
 const s = t(lang);
 const posts = getPosts().slice(0, 3);
 ---
-{posts.length > 0 && (
-  <Section id="blog" title={title} intro={s.page_blog_intro} moreHref={href(lang, 'blog/')} moreLabel={s.all_posts} alt={alt}>
+<Section id="blog" title={title} intro={s.page_blog_intro} moreHref={href(lang, 'blog/')} moreLabel={s.all_posts} alt={alt}>
+    {posts.length === 0 ? (
+      <div class="blog-empty">
+        <p>{s.blog_soon}</p>
+        <a class="more" href={href(lang, 'news/')}>{s.blog_follow}</a>
+      </div>
+    ) : (
     <ul class="post-list">
       {posts.map((p) => (
         <li class="post-card">
@@ -22,5 +27,5 @@ const posts = getPosts().slice(0, 3);
         </li>
       ))}
     </ul>
+    )}
   </Section>
-)}
