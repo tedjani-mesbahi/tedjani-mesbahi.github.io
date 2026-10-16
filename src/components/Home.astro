@@ -2,49 +2,42 @@
 import Profile from './home/Profile.astro';
 import NewsSection from './home/NewsSection.astro';
 import ResearchSection from './home/ResearchSection.astro';
-import ProjectsSection from './home/ProjectsSection.astro';
 import PublicationsSection from './home/PublicationsSection.astro';
 import BlogSection from './home/BlogSection.astro';
 import TeamSection from './home/TeamSection.astro';
-import MediaSection from './home/MediaSection.astro';
 import AboutSection from './home/AboutSection.astro';
 import TeachingSection from './home/TeachingSection.astro';
-import ContactSection from './home/ContactSection.astro';
 import GallerySection from './home/GallerySection.astro';
-import UpdatesSection from './home/UpdatesSection.astro';
 import PositionsSection from './home/PositionsSection.astro';
 import { getSections, getNews } from '../lib/content';
 import type { Lang } from '../lib/i18n';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
-const hasMedia = getNews().some((n) => n.category === 'media' || n.category === 'outreach');
-const sections = getSections().filter((s) => s.visible && (s.id !== 'media' || hasMedia));
+const sections = getSections().filter((s) => s.visible);
 const allNews = getNews();
-// Slider: the featured item(s) plus the most recent news that have a photo.
-const featured = allNews.filter((n) => n.featured);
-const slides = [...featured, ...allNews.filter((n) => n.image && !n.featured)].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
-const news = allNews.filter((n) => !slides.includes(n)).slice(0, 5);
+// Slider: featured news plus the most recent news that have a photo.
+const slides = [...allNews.filter((n) => n.featured), ...allNews.filter((n) => n.image && !n.featured)]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 6);
+// The gallery skips photos already shown in the slider.
+const usedImages = slides.map((n) => n.image).filter(Boolean);
 const titleOf = (sec: any) => (lang === 'fr' ? sec.title_fr : sec.title_en) || sec.title_fr || sec.id;
 const components: Record<string, any> = {
   research: ResearchSection,
-  projects: ProjectsSection,
   publications: PublicationsSection,
   blog: BlogSection,
   team: TeamSection,
-  media: MediaSection,
   about: AboutSection,
   teaching: TeachingSection,
-  contact: ContactSection,
-  gallery: GallerySection,
-  updates: UpdatesSection,
   positions: PositionsSection,
 };
 ---
 <Profile lang={lang} />
 {sections.map((sec, i) => {
-  const alt = i % 2 === 1;
-  if (sec.id === 'news') return <NewsSection lang={lang} title={titleOf(sec)} items={news} slides={slides} alt={alt} />;
+  const alt = i % 2 === 0;
+  if (sec.id === 'news') return <NewsSection lang={lang} title={titleOf(sec)} slides={slides} alt={alt} />;
+  if (sec.id === 'gallery') return <GallerySection lang={lang} title={titleOf(sec)} exclude={usedImages} alt={alt} />;
   const Component = components[sec.id];
   return Component ? <Component lang={lang} title={titleOf(sec)} alt={alt} /> : null;
 })}

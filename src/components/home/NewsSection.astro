@@ -1,25 +1,35 @@
 ---
 import Section from '../Section.astro';
 import NewsSlider from '../NewsSlider.astro';
+import Icon from '../Icon.astro';
 import { t, pick, href, formatDate, type Lang } from '../../lib/i18n';
+import { getUpdates } from '../../lib/content';
 
-interface Props { lang: Lang; title: string; items: Record<string, any>[]; slides?: Record<string, any>[]; alt?: boolean }
-const { lang, title, items, slides = [], alt } = Astro.props;
+interface Props { lang: Lang; title: string; slides: Record<string, any>[]; alt?: boolean }
+const { lang, title, slides, alt } = Astro.props;
 const s = t(lang);
+const updates = getUpdates().slice(0, 7);
+const icons: Record<string, string> = {
+  attending: 'calendar', talk: 'mic', accepted: 'check', published: 'doc', award: 'award', defended: 'cap',
+  joined: 'users', recruiting: 'users', media: 'tv', lab: 'flask', project: 'rocket', visit: 'pin', other: 'bulb',
+};
+const linkOf = (u: any) => (!u.link ? '' : /^https?:/.test(u.link) ? u.link : href(lang, u.link));
 ---
 <Section id="news" title={title} intro={s.page_news_intro} moreHref={href(lang, 'news/')} moreLabel={s.all_news} alt={alt}>
-  <NewsSlider lang={lang} items={slides} />
-  {items.length === 0 ? <p class="empty">{s.news_empty}</p> : (
-    <ul class="news-list">
-      {items.map((n) => (
-        <li class="news-item">
-          <time class="num" datetime={n.date}>{formatDate(n.date, lang, 'short')}</time>
-          <div>
-            <h3><span class="tag">{s.categories[n.category] || s.categories.other}</span><a href={href(lang, `news/${n.slug}/`)}>{pick(n, 'title', lang)}</a></h3>
-            <p>{pick(n, 'summary', lang)}</p>
-          </div>
-        </li>
-      ))}
-    </ul>
-  )}
+  <div class:list={['news-grid', updates.length === 0 && 'news-grid--single']}>
+    <NewsSlider lang={lang} items={slides} />
+    {updates.length > 0 && (
+      <div class="brief" id="updates">
+        <h3 class="brief__title">{s.updates_title}</h3>
+        <ul class="updates">
+          {updates.map((u) => (
+            <li class="update" data-kind={u.kind}>
+              <p class="update__meta"><span class="update__kind"><Icon name={icons[u.kind] || 'bulb'} />{s.kinds[u.kind] || s.kinds.other}</span><time class="num" datetime={u.date}>{formatDate(u.date, lang, 'short')}</time></p>
+              <p class="update__text">{linkOf(u) ? <a href={linkOf(u)} rel={/^https?:/.test(u.link) ? 'noopener' : undefined}>{pick(u, 'text', lang)}</a> : pick(u, 'text', lang)}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
 </Section>

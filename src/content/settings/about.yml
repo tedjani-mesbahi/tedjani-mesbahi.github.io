@@ -11,29 +11,6 @@ bio_en: |-
   His work focuses on energy storage for electric mobility: multiphysics modelling of lithium-ion and sodium-ion batteries, battery/supercapacitor hybrid sources, energy management strategies, and explainable artificial intelligence to estimate the state of charge, state of health and lifetime of batteries. He also works on battery safety and thermal runaway, in close partnership with the Bas-Rhin fire and rescue service (SIS 67).
 
   He coordinates the European project ENERGETIC (Horizon Europe, €5M), after serving as scientific lead of the Interreg project VEHICLE (2019–2022). He received his habilitation (HDR) in 2023 and was elevated to IEEE Senior Member in 2024.
-interests_fr:
-  - Batteries lithium-ion et sodium-ion
-  - Systèmes de gestion de batteries (BMS)
-  - Stockage hybride batterie / supercondensateur
-  - IA explicable, état de santé et durée de vie
-  - Sécurité et emballement thermique
-  - Véhicules électriques et hybrides
-interests_en:
-  - Lithium-ion and sodium-ion batteries
-  - Battery management systems (BMS)
-  - Battery / supercapacitor hybrid storage
-  - Explainable AI, state of health and lifetime
-  - Safety and thermal runaway
-  - Electric and hybrid vehicles
-education:
-  - year: '2023'
-    title_fr: Habilitation à diriger des recherches (HDR)
-    title_en: Habilitation to supervise research (HDR)
-    place: INSA Strasbourg
-  - year: '2016'
-    title_fr: Doctorat en génie électrique
-    title_en: PhD in Electrical Engineering
-    place: École Centrale de Lille · L2EP & ESTACA'Lab
 timeline:
   - period: Aujourd'hui / Now
     title_fr: Professeur des universités en génie électrique

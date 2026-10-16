@@ -10,10 +10,10 @@ const s = t(lang);
 const pubs = getPublications();
 const featured = pubs.filter((p) => p.featured);
 const recent = pubs.filter((p) => !p.featured && p.type === 'journal').slice(0, 3);
-const rows = [...recent, ...featured].sort((a, b) => b.year - a.year);
+const rows = [...recent.slice(0, featured.length % 2 === 0 ? 2 : 3), ...featured].sort((a, b) => b.year - a.year);
 ---
 <Section id="publications" title={title} intro={s.featured_pubs} moreHref={href(lang, 'publications/')} moreLabel={`${s.all_publications} (${pubs.length})`} alt={alt}>
-  <ul class="pubs">
+  <ul class="pubs pubs--grid">
     {rows.map((pub) => <PubItem pub={pub} lang={lang} />)}
   </ul>
 </Section>

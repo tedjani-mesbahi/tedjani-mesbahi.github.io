@@ -2,7 +2,7 @@
 import Section from '../Section.astro';
 import Icon from '../Icon.astro';
 import { t, pick, type Lang } from '../../lib/i18n';
-import { getResearch } from '../../lib/content';
+import { getResearch, getProjects } from '../../lib/content';
 
 interface Props { lang: Lang; title: string; alt?: boolean }
 const { lang, title, alt } = Astro.props;
@@ -10,9 +10,9 @@ const s = t(lang);
 const research = getResearch();
 const themes: any[] = research.themes || [];
 const facilities = pick(research, 'facilities', lang);
+const projects = getProjects();
 ---
-<Section id="research" title={title} alt={alt}>
-  {pick(research, 'intro', lang) && <p class="research-intro">{pick(research, 'intro', lang)}</p>}
+<Section id="research" title={title} intro={pick(research, 'intro', lang)} alt={alt}>
   <ul class="themes">
     {themes.map((theme) => (
       <li class="theme">
@@ -29,6 +29,32 @@ const facilities = pick(research, 'facilities', lang);
       </li>
     ))}
   </ul>
+
+  {projects.length > 0 && (
+    <div class="subsection" id="projects">
+      <h3 class="subsection__title">{s.projects_title}</h3>
+      <div class="projects">
+        {projects.map((p) => (
+          <article class="project" aria-labelledby={`project-${p.slug}`}>
+            <h4 class="project__name" id={`project-${p.slug}`}>{p.name}</h4>
+            <div class="project__meta">
+              <span class="tag">{pick(p, 'role', lang)}</span>
+              {pick(p, 'period', lang) && <span class="tag tag--plain num">{pick(p, 'period', lang)}</span>}
+            </div>
+            <p class="project__title">{pick(p, 'title', lang)}</p>
+            <p class="project__summary">{pick(p, 'summary', lang)}</p>
+            <dl class="project__facts">
+              {pick(p, 'programme', lang) && <><dt>{s.programme}</dt><dd>{pick(p, 'programme', lang)}</dd></>}
+              {p.budget && <><dt>{s.budget}</dt><dd class="num">{p.budget}</dd></>}
+              {pick(p, 'partners', lang) && <><dt>{s.partners}</dt><dd>{pick(p, 'partners', lang)}</dd></>}
+            </dl>
+            {p.link && <a class="more" href={p.link} rel="noopener">{s.details}</a>}
+          </article>
+        ))}
+      </div>
+    </div>
+  )}
+
   {facilities && (
     <div class="facility">
       <Icon name="flask" />

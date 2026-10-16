@@ -38,7 +38,7 @@ Le navigateur se souvient de la connexion. Pour changer la langue de l'interface
 5. Cochez **À la une** pour placer une actualité dans le diaporama même sans photo.
 6. Cliquez sur **Enregistrer** (*Save*).
 
-Les six actualités les plus récentes apparaissent sur la page d'accueil ; toutes sont sur la page « Actualités ». Les actualités de catégorie **Médias** et **Action grand public** alimentent aussi la rubrique « Médias » (renseignez le champ **Média ou lieu**, par exemple « France 2 »).
+Les actualités avec photo (ou cochées « À la une ») alimentent le diaporama de la page d'accueil ; toutes sont sur la page « Actualités », filtrables par catégorie (Médias, Projets, Événements…). Renseignez le champ **Média ou lieu** (par exemple « France 2 ») pour les passages dans les médias.
 
 ---
 
@@ -50,7 +50,7 @@ Pour annoncer rapidement une participation à une conférence, un article accept
 2. Choisissez la **date** et le **type** (Participation, Article accepté, Article publié, Intervention…).
 3. Écrivez **une seule phrase** (français, et anglais si possible), par exemple : « Article accepté dans IEEE Transactions on Industrial Electronics ».
 4. Facultatif : un **lien** (DOI, page de la conférence, ou une actualité du site).
-5. Enregistrez. Les 8 brèves les plus récentes apparaissent en haut de la page d'accueil.
+5. Enregistrez. Les 7 brèves les plus récentes apparaissent dans la rubrique Actualités, à côté du diaporama.
 
 ## 2 ter. Recrutement (offres de thèse, post-doc, stage)
 

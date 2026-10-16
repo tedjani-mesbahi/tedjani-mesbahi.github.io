@@ -7,6 +7,9 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const s = t(lang);
 const news = getNews();
+const order = ['media', 'project', 'event', 'award', 'thesis', 'outreach', 'publication', 'other'];
+const cats = order.filter((c) => news.some((n) => n.category === c));
+const count = (c: string) => news.filter((n) => n.category === c).length;
 const byYear = new Map<string, any[]>();
 for (const n of news) {
   const y = n.date.slice(0, 4);
@@ -15,14 +18,20 @@ for (const n of news) {
 }
 ---
 <PageHead title={s.page_news_title} intro={s.page_news_intro} backHref={href(lang)} backLabel={s.home} />
-<div class="wrap page-body">
+<div class="wrap page-body" data-newsfilter>
   {news.length === 0 && <p class="empty">{s.news_empty}</p>}
+  {cats.length > 1 && (
+    <div class="chips news-chips" role="group" aria-label={s.filter_label}>
+      <button class="chip" type="button" aria-pressed="true" data-cat="all">{s.filter_all} <span class="num">({news.length})</span></button>
+      {cats.map((c) => <button class="chip" type="button" aria-pressed="false" data-cat={c}>{s.categories[c]} <span class="num">({count(c)})</span></button>)}
+    </div>
+  )}
   {[...byYear.entries()].map(([year, items]) => (
-    <section class="year-group" aria-labelledby={`y-${year}`}>
+    <section class="year-group" aria-labelledby={`y-${year}`} data-group>
       <h2 class="year-group__title num" id={`y-${year}`}>{year}</h2>
       <ul class="news-list">
         {items.map((n) => (
-          <li class="news-item">
+          <li class="news-item" data-cat={n.category}>
             <time class="num" datetime={n.date}>{formatDate(n.date, lang, 'short')}</time>
             <div>
               <h3><span class="tag">{s.categories[n.category] || s.categories.other}</span><a href={href(lang, `news/${n.slug}/`)}>{pick(n, 'title', lang)}</a></h3>
@@ -34,3 +43,19 @@ for (const n of news) {
     </section>
   ))}
 </div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-newsfilter]').forEach((root) => {
+    const chips = [...root.querySelectorAll<HTMLButtonElement>('.chip')];
+    const items = [...root.querySelectorAll<HTMLElement>('.news-item')];
+    const groups = [...root.querySelectorAll<HTMLElement>('[data-group]')];
+    const apply = (cat: string) => {
+      items.forEach((it) => (it.hidden = cat !== 'all' && it.dataset.cat !== cat));
+      groups.forEach((g) => (g.hidden = !g.querySelector('.news-item:not([hidden])')));
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.cat === cat)));
+    };
+    chips.forEach((c) => c.addEventListener('click', () => apply(c.dataset.cat || 'all')));
+    const fromHash = location.hash.replace('#', '');
+    if (chips.some((c) => c.dataset.cat === fromHash)) apply(fromHash);
+  });
+</script>

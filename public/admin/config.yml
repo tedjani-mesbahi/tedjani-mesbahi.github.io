@@ -145,7 +145,7 @@ collections:
   - name: updates
     label: En bref
     label_singular: Brève
-    description: "Une ligne par nouvelle : participation à une conférence, article accepté ou publié, intervention, distinction, arrivée dans l'équipe, recrutement… Les 8 plus récentes s'affichent en haut de la page d'accueil."
+    description: "Une ligne par nouvelle : participation à une conférence, article accepté ou publié, intervention, distinction, arrivée dans l'équipe, recrutement… Les 7 plus récentes s'affichent dans la rubrique Actualités, à côté du diaporama."
     icon: bolt
     folder: src/content/updates
     format: yml
@@ -650,34 +650,6 @@ collections:
             label: Biographie (anglais)
             widget: markdown
             required: false
-          - name: interests_fr
-            label: Thèmes de recherche (français)
-            widget: list
-          - name: interests_en
-            label: Thèmes de recherche (anglais)
-            widget: list
-            required: false
-          - name: education
-            label: Diplômes
-            label_singular: diplôme
-            widget: list
-            required: false
-            summary: "{{year}} · {{title_fr}}"
-            fields:
-              - name: year
-                label: Année
-                widget: string
-              - name: title_fr
-                label: Diplôme (français)
-                widget: string
-              - name: title_en
-                label: Diplôme (anglais)
-                widget: string
-                required: false
-              - name: place
-                label: Établissement
-                widget: string
-                required: false
           - name: timeline
             label: Parcours (du plus récent au plus ancien)
             label_singular: étape
@@ -1051,32 +1023,24 @@ collections:
                 label: Rubrique
                 widget: select
                 options:
-                  - label: En bref
-                    value: updates
-                  - label: Actualités
+                  - label: Actualités (diaporama + En bref)
                     value: news
-                  - label: Recherche
+                  - label: Recherche & projets
                     value: research
-                  - label: Projets
-                    value: projects
                   - label: Publications
                     value: publications
-                  - label: Blog
-                    value: blog
                   - label: Équipe et thèses
                     value: team
-                  - label: Médias
-                    value: media
+                  - label: Recrutement
+                    value: positions
+                  - label: Galerie photos
+                    value: gallery
+                  - label: Blog
+                    value: blog
                   - label: Parcours
                     value: about
                   - label: Enseignement
                     value: teaching
-                  - label: Galerie photos
-                    value: gallery
-                  - label: Recrutement
-                    value: positions
-                  - label: Contact
-                    value: contact
               - name: visible
                 label: Afficher
                 widget: boolean

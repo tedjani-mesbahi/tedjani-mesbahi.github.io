@@ -4,10 +4,12 @@ import Filmstrip from '../Filmstrip.astro';
 import { t, type Lang } from '../../lib/i18n';
 import { getGallery } from '../../lib/content';
 
-interface Props { lang: Lang; title: string; alt?: boolean }
-const { lang, title, alt } = Astro.props;
+interface Props { lang: Lang; title: string; exclude?: string[]; alt?: boolean }
+const { lang, title, exclude = [], alt } = Astro.props;
 const s = t(lang);
-const items = getGallery();
+const all = getGallery();
+const rest = all.filter((g) => !exclude.includes(g.image));
+const items = rest.length >= 3 ? rest : all;
 ---
 {items.length > 0 && (
   <Section id="gallery" title={title} intro={s.gallery_intro} alt={alt}>

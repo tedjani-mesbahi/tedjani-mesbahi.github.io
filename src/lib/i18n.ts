@@ -4,6 +4,10 @@ export const DEFAULT_LANG: Lang = 'en';
 
 export const ui = {
   en: {
+    updates_title: 'In brief',
+    projects_title: 'Projects',
+    contact_title: 'Contact',
+    nav_contact: 'Contact',
     updates_intro: 'Recent talks, papers, events and team news, in one line each.',
     kinds: {
       attending: 'Attending', talk: 'Talk', accepted: 'Accepted', published: 'Published', award: 'Award',
@@ -139,6 +143,10 @@ export const ui = {
     not_found_text: 'This page does not exist or has moved.',
   },
   fr: {
+    updates_title: 'En bref',
+    projects_title: 'Projets',
+    contact_title: 'Contact',
+    nav_contact: 'Contact',
     updates_intro: 'Conférences, publications, événements et vie de l’équipe, en une ligne.',
     kinds: {
       attending: 'Participation', talk: 'Intervention', accepted: 'Accepté', published: 'Publié', award: 'Distinction',

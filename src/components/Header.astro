@@ -13,28 +13,34 @@ interface Props {
 const { lang, path, sections, other, name } = Astro.props;
 const s = t(lang);
 const pages: Record<string, string> = { news: 'news/', publications: 'publications/', blog: 'blog/' };
-const navIds = ['about', 'research', 'projects', 'publications', 'team', 'positions', 'news', 'blog', 'teaching', 'contact'];
+const navIds = ['research', 'publications', 'team', 'positions', 'news', 'blog', 'teaching', 'about'];
+const shortLabels: Record<string, Record<Lang, string>> = {
+  research: { fr: 'Recherche', en: 'Research' },
+  team: { fr: 'Équipe', en: 'Team' },
+  positions: { fr: 'Recrutement', en: 'Join us' },
+};
 const items = sections
   .filter((sec) => sec.visible && navIds.includes(sec.id))
   .sort((a, b) => navIds.indexOf(a.id) - navIds.indexOf(b.id))
   .map((sec) => ({
     id: sec.id,
-    label: (lang === 'fr' ? sec.title_fr : sec.title_en) || sec.title_fr || sec.id,
+    label: shortLabels[sec.id]?.[lang] || (lang === 'fr' ? sec.title_fr : sec.title_en) || sec.title_fr || sec.id,
     href: pages[sec.id] ? href(lang, pages[sec.id]) : `${href(lang)}#${sec.id}`,
     current: !!pages[sec.id] && path.startsWith(pages[sec.id]),
   }));
+items.push({ id: 'contact', label: t(lang).nav_contact, href: '#contact', current: false });
 const parts = String(name).trim().split(/\s+/);
 const last = parts.pop();
 const first = parts.join(' ');
 ---
-<header class="site-header">
+<header class="site-header" data-header>
   <a class="skip" href="#main">{s.skip}</a>
   <div class="wrap site-header__bar">
     <a class="brand" href={href(lang)}>{first} <strong>{last}</strong></a>
     <nav class="site-nav" aria-label={s.nav_label}>
       <ul>
         {items.map((item) => (
-          <li><a href={item.href} aria-current={item.current ? 'page' : undefined}>{item.label}</a></li>
+          <li><a href={item.href} data-target={item.id} aria-current={item.current ? 'page' : undefined}>{item.label}</a></li>
         ))}
       </ul>
     </nav>
@@ -60,6 +66,7 @@ const first = parts.join(' ');
     </div>
   </div>
 </header>
+<a class="to-top" href="#main" data-to-top aria-label={s.back_to_top} title={s.back_to_top}><span aria-hidden="true">↑</span></a>
 
 <script>
   const root = document.documentElement;
@@ -75,6 +82,32 @@ const first = parts.join(' ');
       }
     });
   });
+  // Highlight the menu entry of the section currently in view (home page).
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.site-nav a[data-target]')];
+  const targets = links
+    .map((link) => ({ link, el: document.getElementById(link.dataset.target || '') }))
+    .filter((x): x is { link: HTMLAnchorElement; el: HTMLElement } => !!x.el);
+  if (targets.length && 'IntersectionObserver' in window) {
+    const visible = new Map<Element, number>();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e) => visible.set(e.target, e.isIntersecting ? e.intersectionRatio : 0));
+      let best: HTMLAnchorElement | null = null;
+      let bestRatio = 0;
+      for (const { link, el } of targets) {
+        const r = visible.get(el) || 0;
+        if (r > bestRatio) { bestRatio = r; best = link; }
+      }
+      links.forEach((l) => l.classList.toggle('is-active', l === best));
+    }, { rootMargin: '-80px 0px -45% 0px', threshold: [0, 0.1, 0.25, 0.5] });
+    targets.forEach(({ el }) => observer.observe(el));
+  }
+  // Back-to-top button appears after scrolling down.
+  const toTop = document.querySelector<HTMLElement>('[data-to-top]');
+  if (toTop) {
+    const onScroll = () => toTop.classList.toggle('is-visible', window.scrollY > 700);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
   document.querySelectorAll<HTMLDetailsElement>('.mnav').forEach((menu) => {
     menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => menu.removeAttribute('open')));
   });

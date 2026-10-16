@@ -12,31 +12,33 @@ const distinctions: any[] = about.distinctions || [];
 const asText = (item: unknown) => (typeof item === 'string' ? item : item && typeof item === 'object' ? Object.entries(item).map(([k, v]) => `${k}: ${v}`).join(' ') : String(item ?? ''));
 const service: string[] = (pick(about, 'service', lang) || []).map(asText);
 ---
-<Section id="about" title={title} intro={s.timeline} alt={alt}>
-  <ol class="timeline">
-    {timeline.map((item) => (
-      <li>
-        <p class="timeline__period num">{item.period}</p>
-        <h3>{pick(item, 'title', lang)}</h3>
-        {item.place && <p class="timeline__place">{item.place}</p>}
-        {pick(item, 'detail', lang) && <p class="timeline__detail">{pick(item, 'detail', lang)}</p>}
-      </li>
-    ))}
-  </ol>
-  {(distinctions.length > 0 || service.length > 0) && (
-    <div class="about-cols">
-      {distinctions.length > 0 && (
-        <div>
-          <h3>{s.distinctions}</h3>
-          <ul>{distinctions.map((d) => <li><span class="num">{d.year}</span>{pick(d, 'title', lang)}</li>)}</ul>
-        </div>
-      )}
-      {service.length > 0 && (
-        <div>
-          <h3>{s.service}</h3>
-          <ul>{service.map((item) => <li>{item}</li>)}</ul>
-        </div>
-      )}
-    </div>
-  )}
+<Section id="about" title={title} alt={alt}>
+  <div class="about-grid">
+    <ol class="timeline">
+      {timeline.map((item) => (
+        <li>
+          <p class="timeline__period num">{item.period}</p>
+          <h3>{pick(item, 'title', lang)}</h3>
+          {item.place && <p class="timeline__place">{item.place}</p>}
+          {pick(item, 'detail', lang) && <p class="timeline__detail">{pick(item, 'detail', lang)}</p>}
+        </li>
+      ))}
+    </ol>
+    {(distinctions.length > 0 || service.length > 0) && (
+      <div class="about-side">
+        {distinctions.length > 0 && (
+          <div>
+            <h3>{s.distinctions}</h3>
+            <ul>{distinctions.map((d) => <li><span class="num">{d.year}</span>{pick(d, 'title', lang)}</li>)}</ul>
+          </div>
+        )}
+        {service.length > 0 && (
+          <div>
+            <h3>{s.service}</h3>
+            <ul>{service.map((item) => <li>{item}</li>)}</ul>
+          </div>
+        )}
+      </div>
+    )}
+  </div>
 </Section>

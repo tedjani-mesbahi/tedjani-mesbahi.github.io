@@ -25,24 +25,20 @@ const iconFor = (label: string) => {
 const social = links.filter((l) => ['scholar', 'orcid', 'hal', 'linkedin', 'researchgate'].includes(iconFor(l.label)));
 const scholar = links.find((l) => iconFor(l.label) === 'scholar');
 const parts = String(site.name || '').trim().split(/\s+/);
-const last = parts.pop();
-const first = parts.join(' ');
-const initials = `${first[0] ?? ''}${last?.[0] ?? ''}`;
-const interests: string[] = pick(about, 'interests', lang) || [];
-const education: any[] = about.education || [];
+const initials = parts.map((p) => p[0]).slice(0, 2).join('');
 const photo = site.photo ? withBase(site.photo) : '';
 const cv = site.cv ? withBase(site.cv) : '';
 ---
 <section class="profile" id="about-top" aria-labelledby="profile-name">
   <div class="profile__banner"><Circuit /></div>
   <div class="wrap profile__grid">
-    <aside class="card-id" aria-label={site.name}>
+    <aside class="card-id">
       {photo ? (
-        <img class="avatar" src={photo} alt={pick(site, 'photo_alt', lang)} width="176" height="176" />
+        <img class="avatar" src={photo} alt={pick(site, 'photo_alt', lang)} width="200" height="200" />
       ) : (
         <div class="avatar avatar--initials" aria-hidden="true">{initials}</div>
       )}
-      <p class="card-id__name">{site.name}</p>
+      <h1 class="card-id__name" id="profile-name">{site.name}</h1>
       <p class="card-id__role">{pick(site, 'title', lang)}</p>
       <p class="card-id__aff">{pick(site, 'affiliation', lang)}</p>
       <ul class="socials">
@@ -59,36 +55,13 @@ const cv = site.cv ? withBase(site.cv) : '';
     </aside>
 
     <div class="profile__main">
-      <h1 id="profile-name"><span>{first}</span> {last}</h1>
       <p class="profile__tagline">{pick(site, 'tagline', lang)}</p>
       <div class="profile__bio prose" set:html={markdown(pick(about, 'bio', lang))} />
       <div class="profile__actions">
-        <a class="btn" href={`${href(lang)}#contact`}><Icon name="email" />{s.contact}</a>
+        <a class="btn" href="#contact"><Icon name="email" />{s.contact}</a>
         <a class="btn btn--ghost" href={href(lang, 'publications/')}><Icon name="doc" />{s.publications}</a>
         {cv && <a class="btn btn--ghost" href={cv}><Icon name="doc" />{s.cv}</a>}
       </div>
-      {(interests.length > 0 || education.length > 0) && (
-        <div class="profile__facts">
-          {interests.length > 0 && (
-            <div>
-              <h2>{s.interests}</h2>
-              <ul class="facts-list">
-                {interests.map((item) => <li><Icon name="bulb" /><span>{item}</span></li>)}
-              </ul>
-            </div>
-          )}
-          {education.length > 0 && (
-            <div>
-              <h2>{s.education}</h2>
-              <ul class="facts-list">
-                {education.map((e) => (
-                  <li><Icon name="cap" /><span>{pick(e, 'title', lang)}, <span class="num">{e.year}</span><small>{e.place}</small></span></li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      )}
     </div>
   </div>
 </section>

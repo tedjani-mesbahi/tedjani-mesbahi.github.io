@@ -47,7 +47,7 @@ export const getResearch = () => setting('research');
 export const getTeam = () => setting('team');
 export const getTeaching = () => setting('teaching');
 
-export const SECTION_IDS = ['updates', 'news', 'research', 'projects', 'publications', 'blog', 'team', 'positions', 'gallery', 'media', 'about', 'teaching', 'contact'] as const;
+export const SECTION_IDS = ['news', 'research', 'publications', 'team', 'positions', 'gallery', 'blog', 'about', 'teaching'] as const;
 
 export function getSections() {
   const data = setting('sections');

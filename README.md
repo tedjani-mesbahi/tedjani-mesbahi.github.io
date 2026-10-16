@@ -19,6 +19,8 @@ src/content/
                      about.yml, research.yml, team.yml, teaching.yml
   news/              one YAML file per news item (FR + EN fields, optional photo)
   gallery/           one YAML file per gallery photo (filmstrip on the home page)
+  updates/           one-line "In brief" items (attending, accepted, published...)
+  positions/         recruiting offers (PhD, postdoc, internship)
   blog/              one Markdown file per post
   projects/          one YAML file per project
   publications/      one YAML file per publication

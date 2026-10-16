@@ -1,7 +1,6 @@
 ---
 // "À la une" carousel at the top of the news section: photo + headline slides,
 // with arrows, dots, swipe, keyboard and a pause button (auto-advance every 7 s).
-import Circuit from './Circuit.astro';
 import Icon from './Icon.astro';
 import { t, pick, href, withBase, formatDate, type Lang } from '../lib/i18n';
 
@@ -22,7 +21,7 @@ const total = items.length;
                 <img src={withBase(n.image)} alt="" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
               ) : (
                 <span class="nslide__poster">
-                  <Circuit />
+                  <span class="nslide__poster-icon"><Icon name={n.category === 'media' ? 'tv' : 'doc'} /></span>
                   <span class="nslide__outlet">{n.outlet || s.categories[n.category] || s.categories.other}</span>
                 </span>
               )}

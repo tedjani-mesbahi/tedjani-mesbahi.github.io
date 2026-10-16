@@ -30,8 +30,9 @@ Restrained: neutrals plus one blue accent. Light theme by default (readers at de
 
 ## Layout
 
-- Content width 1140 px with fluid gutters; reading width 72ch.
-- Desktop sections use the Hugo Academic grid: title column (3/12) on the left, content (9/12) on the right; below 1000 px the title stacks above.
+- Content width 1320 px with fluid gutters; prose capped at ~78ch, grids use the full width.
+- Section heading row on top (title + short intro left, "see all" link right), content full width below; multi-column grids on wide screens (themes 3 columns, selected publications 2, team 2, career timeline + side panel).
+- No repeated content: the name lives only in the profile card, research interests only in Research, degrees only in Career, contact only in the footer, media items only in News (filterable).
 - Sections separated by generous space and a 1 px rule; alternate sections may use `--surface`.
 - Profile header: portrait card (photo or initials, name, role, affiliation, icon links, citation line) on the left, biography + interests + degrees on the right.
 
