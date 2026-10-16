@@ -12,6 +12,8 @@ const projectFiles = import.meta.glob('/src/content/projects/*.yml', { query: '?
 const publicationFiles = import.meta.glob('/src/content/publications/*.yml', { query: '?raw', import: 'default', eager: true }) as Raw;
 const blogFiles = import.meta.glob('/src/content/blog/*.md', { query: '?raw', import: 'default', eager: true }) as Raw;
 const galleryFiles = import.meta.glob('/src/content/gallery/*.yml', { query: '?raw', import: 'default', eager: true }) as Raw;
+const updateFiles = import.meta.glob('/src/content/updates/*.yml', { query: '?raw', import: 'default', eager: true }) as Raw;
+const positionFiles = import.meta.glob('/src/content/positions/*.yml', { query: '?raw', import: 'default', eager: true }) as Raw;
 
 function safeParse(raw: string, path: string): Record<string, any> | null {
   try {
@@ -45,7 +47,7 @@ export const getResearch = () => setting('research');
 export const getTeam = () => setting('team');
 export const getTeaching = () => setting('teaching');
 
-export const SECTION_IDS = ['news', 'research', 'projects', 'publications', 'blog', 'team', 'gallery', 'media', 'about', 'teaching', 'contact'] as const;
+export const SECTION_IDS = ['updates', 'news', 'research', 'projects', 'publications', 'blog', 'team', 'positions', 'gallery', 'media', 'about', 'teaching', 'contact'] as const;
 
 export function getSections() {
   const data = setting('sections');
@@ -83,6 +85,26 @@ export function getProjects() {
     })
     .filter((p): p is Record<string, any> => !!p && !p.hidden && !!p.name)
     .sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+}
+
+export function getUpdates() {
+  return Object.entries(updateFiles)
+    .map(([path, raw]) => {
+      const data = safeParse(raw, path);
+      return data ? { ...data, slug: slugOf(path), date: isoDate(data.date), kind: data.kind || 'other' } : null;
+    })
+    .filter((u): u is Record<string, any> => !!u && !u.hidden && !!(u.text_fr || u.text_en) && !!u.date)
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function getPositions() {
+  return Object.entries(positionFiles)
+    .map(([path, raw]) => {
+      const data = safeParse(raw, path);
+      return data ? { ...data, slug: slugOf(path), deadline: isoDate(data.deadline), type: data.type || 'other' } : null;
+    })
+    .filter((p): p is Record<string, any> => !!p && !p.hidden && (p.status || 'open') === 'open' && !!(p.title_fr || p.title_en))
+    .sort((a, b) => String(a.deadline || '9999').localeCompare(String(b.deadline || '9999')));
 }
 
 export function getGallery() {

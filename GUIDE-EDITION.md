@@ -42,6 +42,26 @@ Les six actualités les plus récentes apparaissent sur la page d'accueil ; tout
 
 ---
 
+## 2 bis. Brèves « En bref » (une ligne)
+
+Pour annoncer rapidement une participation à une conférence, un article accepté ou publié, une intervention, une distinction, une arrivée dans l'équipe ou un recrutement :
+
+1. Menu **En bref** → **Nouveau**.
+2. Choisissez la **date** et le **type** (Participation, Article accepté, Article publié, Intervention…).
+3. Écrivez **une seule phrase** (français, et anglais si possible), par exemple : « Article accepté dans IEEE Transactions on Industrial Electronics ».
+4. Facultatif : un **lien** (DOI, page de la conférence, ou une actualité du site).
+5. Enregistrez. Les 8 brèves les plus récentes apparaissent en haut de la page d'accueil.
+
+## 2 ter. Recrutement (offres de thèse, post-doc, stage)
+
+1. Menu **Recrutement** : ouvrez le **modèle d'offre** (masqué), utilisez **Dupliquer**, puis remplissez l'intitulé, le type, le début, la date limite, le résumé et la description.
+2. Décochez **Masquer du site** et laissez le statut **Ouverte**.
+3. Quand le poste est pourvu, passez le statut à **Pourvue / fermée** : l'offre disparaît du site.
+
+Sans offre ouverte, la rubrique affiche le texte « Candidatures spontanées » (modifiable dans Réglages → Profil et coordonnées → Postes ouverts).
+
+---
+
 ## 3. Galerie photos (bande défilante)
 
 1. Menu **Galerie photos** → **Nouveau**.

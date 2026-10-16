@@ -11,6 +11,8 @@ import AboutSection from './home/AboutSection.astro';
 import TeachingSection from './home/TeachingSection.astro';
 import ContactSection from './home/ContactSection.astro';
 import GallerySection from './home/GallerySection.astro';
+import UpdatesSection from './home/UpdatesSection.astro';
+import PositionsSection from './home/PositionsSection.astro';
 import { getSections, getNews } from '../lib/content';
 import type { Lang } from '../lib/i18n';
 
@@ -35,6 +37,8 @@ const components: Record<string, any> = {
   teaching: TeachingSection,
   contact: ContactSection,
   gallery: GallerySection,
+  updates: UpdatesSection,
+  positions: PositionsSection,
 };
 ---
 <Profile lang={lang} />

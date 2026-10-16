@@ -2202,3 +2202,167 @@ a:hover {
     height: 2.4rem;
   }
 }
+
+/* --- Updates ("En bref") --------------------------------------------------- */
+
+.updates {
+  list-style: none;
+}
+
+.update {
+  display: grid;
+  grid-template-columns: 7.5rem 9.5rem minmax(0, 1fr);
+  gap: 0.35rem 1.25rem;
+  align-items: baseline;
+  padding-block: 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.updates > .update:first-child {
+  padding-top: 0;
+}
+
+.update time {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.update__kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-self: start;
+  padding: 0.1rem 0.6rem 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.update__kind svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.update[data-kind='published'] .update__kind,
+.update[data-kind='accepted'] .update__kind {
+  background: color-mix(in srgb, #1a7f37 14%, var(--bg));
+  color: color-mix(in srgb, #1a7f37 85%, var(--text));
+}
+
+.update[data-kind='recruiting'] .update__kind {
+  background: color-mix(in srgb, #b35900 16%, var(--bg));
+  color: color-mix(in srgb, #b35900 85%, var(--text));
+}
+
+.update__text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.update__text a {
+  color: var(--text);
+}
+
+.update__text a:hover {
+  color: var(--accent);
+}
+
+.updates-more {
+  margin-top: 0.9rem;
+}
+
+.updates-more summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+  padding-block: 0.4rem;
+}
+
+.updates-more[open] summary {
+  margin-bottom: 0.6rem;
+}
+
+@media (max-width: 720px) {
+  .update {
+    grid-template-columns: auto 1fr;
+  }
+
+  .update__text {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --- Recruiting --------------------------------------------------------- */
+
+.offers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.25rem;
+}
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.offer h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.offer__summary {
+  color: var(--muted);
+}
+
+.offer__facts {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.2rem 0.9rem;
+  margin: 0.2rem 0 0;
+  font-size: 0.94rem;
+}
+
+.offer__facts dt {
+  color: var(--muted);
+}
+
+.offer__facts dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.offer__details summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.offer__details .prose {
+  margin-top: 0.6rem;
+  font-size: 0.97rem;
+}
+
+.offer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.6rem;
+}
+
+.offers-empty {
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+#positions .positions {
+  margin-top: 1.25rem;
+}

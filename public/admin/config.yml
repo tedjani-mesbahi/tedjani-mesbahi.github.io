@@ -142,6 +142,178 @@ collections:
         label: Description de la photo (anglais)
         widget: string
         required: false
+  - name: updates
+    label: En bref
+    label_singular: Brève
+    description: "Une ligne par nouvelle : participation à une conférence, article accepté ou publié, intervention, distinction, arrivée dans l'équipe, recrutement… Les 8 plus récentes s'affichent en haut de la page d'accueil."
+    icon: bolt
+    folder: src/content/updates
+    format: yml
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: text_fr
+    summary: "{{date}} · {{kind}} · {{text_fr}}"
+    sortable_fields:
+      fields:
+        - date
+        - kind
+      default:
+        field: date
+        direction: descending
+    fields:
+      - name: date
+        label: Date
+        widget: datetime
+        type: date
+        picker_utc: true
+      - name: kind
+        label: Type
+        widget: select
+        default: attending
+        options:
+          - label: Participation (conférence, salon…)
+            value: attending
+          - label: Intervention / présidence de session
+            value: talk
+          - label: Article accepté
+            value: accepted
+          - label: Article publié
+            value: published
+          - label: Distinction / prix
+            value: award
+          - label: Soutenance de thèse
+            value: defended
+          - label: Arrivée dans l'équipe
+            value: joined
+          - label: Recrutement
+            value: recruiting
+          - label: Médias
+            value: media
+          - label: Laboratoire / équipement
+            value: lab
+          - label: Projet
+            value: project
+          - label: Visite / mobilité
+            value: visit
+          - label: Autre
+            value: other
+      - name: text_fr
+        label: Texte (français)
+        widget: string
+        hint: "Une seule phrase. Ex. : Article accepté dans IEEE Transactions on Industrial Electronics."
+      - name: text_en
+        label: Texte (anglais)
+        widget: string
+        required: false
+      - name: link
+        label: Lien
+        widget: string
+        required: false
+        hint: "Facultatif. Une page du site (ex. : news/…/) ou une adresse https:// (DOI, conférence…)"
+      - name: hidden
+        label: Masquer du site
+        widget: boolean
+        default: false
+        required: false
+  - name: positions
+    label: Recrutement
+    label_singular: Offre
+    description: "Offres de thèse, post-doctorat, stage ou poste d'ingénieur. Une offre « Pourvue » ou masquée disparaît du site. Un modèle d'offre masqué est disponible : dupliquez-le."
+    icon: person_add
+    folder: src/content/positions
+    format: yml
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: title_fr
+    summary: "{{title_fr}} · {{status}}"
+    fields:
+      - name: title_fr
+        label: Intitulé (français)
+        widget: string
+      - name: title_en
+        label: Intitulé (anglais)
+        widget: string
+        required: false
+      - name: type
+        label: Type
+        widget: select
+        default: phd
+        options:
+          - label: Thèse
+            value: phd
+          - label: Post-doctorat
+            value: postdoc
+          - label: Stage
+            value: internship
+          - label: Ingénieur(e)
+            value: engineer
+          - label: Autre
+            value: other
+      - name: status
+        label: Statut
+        widget: select
+        default: open
+        options:
+          - label: Ouverte
+            value: open
+          - label: Pourvue / fermée
+            value: closed
+      - name: start
+        label: Début
+        widget: string
+        required: false
+        hint: "Ex. : Octobre 2027"
+      - name: deadline
+        label: Date limite de candidature
+        widget: datetime
+        type: date
+        picker_utc: true
+        required: false
+      - name: location
+        label: Lieu
+        widget: string
+        required: false
+        default: INSA Strasbourg · ICube, Strasbourg
+      - name: funding
+        label: Financement
+        widget: string
+        required: false
+      - name: summary_fr
+        label: Résumé (français)
+        widget: text
+        required: false
+      - name: summary_en
+        label: Résumé (anglais)
+        widget: text
+        required: false
+      - name: description_fr
+        label: Description détaillée (français)
+        widget: markdown
+        required: false
+      - name: description_en
+        label: Description détaillée (anglais)
+        widget: markdown
+        required: false
+      - name: contact_email
+        label: E-mail de candidature
+        widget: string
+        required: false
+        hint: Si vide, l'e-mail du profil est utilisé.
+      - name: link
+        label: Lien vers l'offre (si publiée ailleurs)
+        widget: string
+        required: false
+      - name: pdf
+        label: Offre en PDF
+        widget: file
+        required: false
+      - name: hidden
+        label: Masquer du site
+        widget: boolean
+        default: false
+        required: false
   - name: gallery
     label: Galerie photos
     label_singular: Photo
@@ -879,6 +1051,8 @@ collections:
                 label: Rubrique
                 widget: select
                 options:
+                  - label: En bref
+                    value: updates
                   - label: Actualités
                     value: news
                   - label: Recherche
@@ -899,6 +1073,8 @@ collections:
                     value: teaching
                   - label: Galerie photos
                     value: gallery
+                  - label: Recrutement
+                    value: positions
                   - label: Contact
                     value: contact
               - name: visible

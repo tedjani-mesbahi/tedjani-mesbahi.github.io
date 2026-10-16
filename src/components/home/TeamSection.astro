@@ -1,13 +1,12 @@
 ---
 import Section from '../Section.astro';
 import { t, pick, type Lang } from '../../lib/i18n';
-import { getTeam, getSite } from '../../lib/content';
+import { getTeam } from '../../lib/content';
 
 interface Props { lang: Lang; title: string; alt?: boolean }
 const { lang, title, alt } = Astro.props;
 const s = t(lang);
 const team = getTeam();
-const site = getSite();
 const members: any[] = team.members || [];
 const groups = [
   { label: s.phd_current, list: members.filter((m) => m.role === 'phd' && m.status === 'current') },
@@ -34,10 +33,4 @@ const initials = (name: string) => name.split(/\s+/).map((w) => w[0]).slice(0, 2
       </ul>
     </div>
   ))}
-  {pick(site, 'open_positions', lang) && (
-    <div class="positions">
-      <strong>{s.open_positions}</strong>
-      <p>{pick(site, 'open_positions', lang)} {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}</p>
-    </div>
-  )}
 </Section>

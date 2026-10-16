@@ -13,7 +13,7 @@ interface Props {
 const { lang, path, sections, other, name } = Astro.props;
 const s = t(lang);
 const pages: Record<string, string> = { news: 'news/', publications: 'publications/', blog: 'blog/' };
-const navIds = ['about', 'research', 'projects', 'publications', 'team', 'news', 'blog', 'teaching', 'contact'];
+const navIds = ['about', 'research', 'projects', 'publications', 'team', 'positions', 'news', 'blog', 'teaching', 'contact'];
 const items = sections
   .filter((sec) => sec.visible && navIds.includes(sec.id))
   .sort((a, b) => navIds.indexOf(a.id) - navIds.indexOf(b.id))

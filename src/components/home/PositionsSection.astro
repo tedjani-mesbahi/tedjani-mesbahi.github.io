@@ -1,0 +1,57 @@
+---
+import Section from '../Section.astro';
+import Icon from '../Icon.astro';
+import { t, pick, withBase, formatDate, type Lang } from '../../lib/i18n';
+import { getPositions, getSite, markdown } from '../../lib/content';
+
+interface Props { lang: Lang; title: string; alt?: boolean }
+const { lang, title, alt } = Astro.props;
+const s = t(lang);
+const site = getSite();
+const positions = getPositions();
+const mailto = (email: string, subject: string) => `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+const spontaneous = pick(site, 'open_positions', lang);
+---
+<Section id="positions" title={title} intro={s.positions_intro} alt={alt}>
+  {positions.length > 0 ? (
+    <div class="offers">
+      {positions.map((p) => {
+        const email = p.contact_email || site.email;
+        const offerTitle = pick(p, 'title', lang);
+        return (
+          <article class="offer" aria-labelledby={`offer-${p.slug}`}>
+            <p class="offer__type"><span class="tag">{s.position_types[p.type] || s.position_types.other}</span></p>
+            <h3 id={`offer-${p.slug}`}>{offerTitle}</h3>
+            {pick(p, 'summary', lang) && <p class="offer__summary">{pick(p, 'summary', lang)}</p>}
+            <dl class="offer__facts">
+              {p.start && <><dt>{s.start}</dt><dd>{p.start}</dd></>}
+              {p.deadline && <><dt>{s.deadline}</dt><dd class="num">{formatDate(p.deadline, lang)}</dd></>}
+              {p.location && <><dt>{s.location}</dt><dd>{p.location}</dd></>}
+              {p.funding && <><dt>{s.funding}</dt><dd>{p.funding}</dd></>}
+            </dl>
+            {pick(p, 'description', lang) && (
+              <details class="offer__details">
+                <summary>{s.offer_details}</summary>
+                <div class="prose" set:html={markdown(pick(p, 'description', lang))} />
+              </details>
+            )}
+            <p class="offer__actions">
+              {email && <a class="btn" href={mailto(email, `${s.apply_subject} — ${offerTitle}`)}><Icon name="email" />{s.apply}</a>}
+              {p.pdf && <a class="btn btn--ghost" href={withBase(p.pdf)}><Icon name="doc" />{s.offer_pdf}</a>}
+              {p.link && <a class="btn btn--ghost" href={p.link} rel="noopener"><Icon name="external" />{s.offer_details}</a>}
+            </p>
+          </article>
+        );
+      })}
+    </div>
+  ) : (
+    <p class="offers-empty">{s.no_positions}</p>
+  )}
+  {spontaneous && (
+    <div class="positions">
+      <strong>{s.spontaneous}</strong>
+      <p>{spontaneous}</p>
+      {site.email && <p style="margin-top:0.9rem"><a class="btn" href={mailto(site.email, s.apply_subject)}><Icon name="email" />{site.email}</a></p>}
+    </div>
+  )}
+</Section>
