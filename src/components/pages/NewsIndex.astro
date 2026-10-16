@@ -1,0 +1,36 @@
+---
+import PageHead from '../PageHead.astro';
+import { t, pick, href, formatDate, type Lang } from '../../lib/i18n';
+import { getNews } from '../../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const news = getNews();
+const byYear = new Map<string, any[]>();
+for (const n of news) {
+  const y = n.date.slice(0, 4);
+  if (!byYear.has(y)) byYear.set(y, []);
+  byYear.get(y)!.push(n);
+}
+---
+<PageHead title={s.page_news_title} intro={s.page_news_intro} backHref={href(lang)} backLabel={s.home} />
+<div class="wrap page-body">
+  {news.length === 0 && <p class="empty">{s.news_empty}</p>}
+  {[...byYear.entries()].map(([year, items]) => (
+    <section class="year-group" aria-labelledby={`y-${year}`}>
+      <h2 class="year-group__title num" id={`y-${year}`}>{year}</h2>
+      <ul class="news-list">
+        {items.map((n) => (
+          <li class="news-item">
+            <time class="num" datetime={n.date}>{formatDate(n.date, lang, 'short')}</time>
+            <div>
+              <h3><span class="tag">{s.categories[n.category] || s.categories.other}</span><a href={href(lang, `news/${n.slug}/`)}>{pick(n, 'title', lang)}</a></h3>
+              <p>{pick(n, 'summary', lang)}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</div>

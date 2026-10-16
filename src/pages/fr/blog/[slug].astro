@@ -1,0 +1,13 @@
+---
+import Base from '../../../layouts/Base.astro';
+import BlogPost from '../../../components/pages/BlogPost.astro';
+import { getPosts } from '../../../lib/content';
+
+export function getStaticPaths() {
+  return getPosts().map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+const { post } = Astro.props;
+---
+<Base lang="fr" path={`blog/${post.slug}/`} title={post.title} description={post.summary}>
+  <BlogPost lang="fr" post={post} />
+</Base>

@@ -1,0 +1,32 @@
+---
+import PageHead from '../PageHead.astro';
+import { t, href, withBase, formatDate, type Lang } from '../../lib/i18n';
+import { getPosts } from '../../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const posts = getPosts();
+---
+<PageHead title={s.page_blog_title} intro={s.page_blog_intro} backHref={href(lang)} backLabel={s.home} />
+<div class="wrap page-body">
+  {posts.length === 0 ? <p class="empty">{s.blog_empty}</p> : (
+    <ul class="post-list">
+      {posts.map((p) => (
+        <li class="post-card">
+          <div>
+            <h3><a href={href(lang, `blog/${p.slug}/`)} hreflang={p.lang}>{p.title}</a></h3>
+            {p.summary && <p>{p.summary}</p>}
+            <p class="post-card__meta">
+              <time class="num" datetime={p.date}>{formatDate(p.date, lang)}</time>
+              <span>{s.reading_time(p.minutes)}</span>
+              {p.lang !== lang && <span class="tag tag--plain">{s.written_in[p.lang]}</span>}
+              {(p.tags || []).map((tag: string) => <span class="tag">{tag}</span>)}
+            </p>
+          </div>
+          {p.cover && <img src={withBase(p.cover)} alt="" loading="lazy" width="144" height="108" />}
+        </li>
+      ))}
+    </ul>
+  )}
+</div>

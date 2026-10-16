@@ -1,0 +1,94 @@
+---
+import Circuit from '../Circuit.astro';
+import Icon from '../Icon.astro';
+import { t, pick, href, withBase, formatNumber, type Lang } from '../../lib/i18n';
+import { getSite, getAbout, markdown } from '../../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const site = getSite();
+const about = getAbout();
+const m = site.metrics || {};
+const links: { label: string; url: string }[] = (site.links || []).filter((l: any) => l?.url);
+const iconFor = (label: string) => {
+  const key = label.toLowerCase().replace(/\s+/g, '');
+  if (key.includes('scholar')) return 'scholar';
+  if (key.includes('orcid')) return 'orcid';
+  if (key.includes('linkedin')) return 'linkedin';
+  if (key.includes('researchgate')) return 'researchgate';
+  if (key === 'hal') return 'hal';
+  if (key.includes('scopus')) return 'scopus';
+  if (key.includes('dblp')) return 'dblp';
+  return 'link';
+};
+const social = links.filter((l) => ['scholar', 'orcid', 'hal', 'linkedin', 'researchgate'].includes(iconFor(l.label)));
+const scholar = links.find((l) => iconFor(l.label) === 'scholar');
+const parts = String(site.name || '').trim().split(/\s+/);
+const last = parts.pop();
+const first = parts.join(' ');
+const initials = `${first[0] ?? ''}${last?.[0] ?? ''}`;
+const interests: string[] = pick(about, 'interests', lang) || [];
+const education: any[] = about.education || [];
+const photo = site.photo ? withBase(site.photo) : '';
+const cv = site.cv ? withBase(site.cv) : '';
+---
+<section class="profile" id="about-top" aria-labelledby="profile-name">
+  <div class="profile__banner"><Circuit /></div>
+  <div class="wrap profile__grid">
+    <aside class="card-id" aria-label={site.name}>
+      {photo ? (
+        <img class="avatar" src={photo} alt={pick(site, 'photo_alt', lang)} width="176" height="176" />
+      ) : (
+        <div class="avatar avatar--initials" aria-hidden="true">{initials}</div>
+      )}
+      <p class="card-id__name">{site.name}</p>
+      <p class="card-id__role">{pick(site, 'title', lang)}</p>
+      <p class="card-id__aff">{pick(site, 'affiliation', lang)}</p>
+      <ul class="socials">
+        {site.email && <li><a href={`mailto:${site.email}`} title={s.email} aria-label={s.email}><Icon name="email" /></a></li>}
+        {social.map((l) => <li><a href={l.url} title={l.label} aria-label={l.label} rel="noopener me"><Icon name={iconFor(l.label)} /></a></li>)}
+      </ul>
+      {m.citations && (
+        <p class="card-id__metrics">
+          <strong class="num">{formatNumber(Number(m.citations), lang)}</strong> citations · {s.h_index} <strong class="num">{m.h_index}</strong>
+          <br />
+          {scholar ? <a href={scholar.url} rel="noopener">{m.source || s.scholar_source}</a> : (m.source || s.scholar_source)}
+        </p>
+      )}
+    </aside>
+
+    <div class="profile__main">
+      <h1 id="profile-name"><span>{first}</span> {last}</h1>
+      <p class="profile__tagline">{pick(site, 'tagline', lang)}</p>
+      <div class="profile__bio prose" set:html={markdown(pick(about, 'bio', lang))} />
+      <div class="profile__actions">
+        <a class="btn" href={`${href(lang)}#contact`}><Icon name="email" />{s.contact}</a>
+        <a class="btn btn--ghost" href={href(lang, 'publications/')}><Icon name="doc" />{s.publications}</a>
+        {cv && <a class="btn btn--ghost" href={cv}><Icon name="doc" />{s.cv}</a>}
+      </div>
+      {(interests.length > 0 || education.length > 0) && (
+        <div class="profile__facts">
+          {interests.length > 0 && (
+            <div>
+              <h2>{s.interests}</h2>
+              <ul class="facts-list">
+                {interests.map((item) => <li><Icon name="bulb" /><span>{item}</span></li>)}
+              </ul>
+            </div>
+          )}
+          {education.length > 0 && (
+            <div>
+              <h2>{s.education}</h2>
+              <ul class="facts-list">
+                {education.map((e) => (
+                  <li><Icon name="cap" /><span>{pick(e, 'title', lang)}, <span class="num">{e.year}</span><small>{e.place}</small></span></li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

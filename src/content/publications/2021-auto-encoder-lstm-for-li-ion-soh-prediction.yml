@@ -1,0 +1,11 @@
+title: "Auto-encoder LSTM for Li-ion SOH prediction : a comparative study on various benchmark datasets"
+authors: Paul Audin, Inès Jorge, Tedjani Mesbahi, Ahmed Samet, François de Bertrand de Beuvron, Romuald Boné
+year: 2021
+type: conference
+venue: 20th IEEE International Conference on Machine Learning and Applications, 13-16 Dec. 2021
+details: pp. 1529-1536
+doi: 10.1109/ICMLA52953.2021.00246
+url: https://hal.science/hal-03797825v1
+hal_id: hal-03797825
+featured: false
+hidden: false

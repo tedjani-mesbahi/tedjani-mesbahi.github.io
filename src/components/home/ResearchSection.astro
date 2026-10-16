@@ -1,0 +1,38 @@
+---
+import Section from '../Section.astro';
+import Icon from '../Icon.astro';
+import { t, pick, type Lang } from '../../lib/i18n';
+import { getResearch } from '../../lib/content';
+
+interface Props { lang: Lang; title: string; alt?: boolean }
+const { lang, title, alt } = Astro.props;
+const s = t(lang);
+const research = getResearch();
+const themes: any[] = research.themes || [];
+const facilities = pick(research, 'facilities', lang);
+---
+<Section id="research" title={title} alt={alt}>
+  {pick(research, 'intro', lang) && <p class="research-intro">{pick(research, 'intro', lang)}</p>}
+  <ul class="themes">
+    {themes.map((theme) => (
+      <li class="theme">
+        <span class="theme__icon"><Icon name={theme.icon || 'bulb'} /></span>
+        <div>
+          <h3>{pick(theme, 'title', lang)}</h3>
+          <p>{pick(theme, 'text', lang)}</p>
+          {theme.keywords?.length > 0 && (
+            <ul class="theme__keys" aria-label={s.keywords}>
+              {theme.keywords.map((k: string) => <li class="tag tag--plain">{k}</li>)}
+            </ul>
+          )}
+        </div>
+      </li>
+    ))}
+  </ul>
+  {facilities && (
+    <div class="facility">
+      <Icon name="flask" />
+      <p><strong>{s.facilities}</strong>{facilities}</p>
+    </div>
+  )}
+</Section>

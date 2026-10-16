@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { href } from '../lib/i18n';
+---
+<Base lang="en" path="" title="Page not found">
+  <PageHead title="Page not found" intro="This page does not exist or has moved. · Cette page n’existe pas ou a été déplacée." />
+  <div class="wrap page-body">
+    <p><a class="btn" href={href('en')}>Home</a> <a class="btn btn--ghost" href={href('fr')}>Accueil (FR)</a></p>
+  </div>
+</Base>

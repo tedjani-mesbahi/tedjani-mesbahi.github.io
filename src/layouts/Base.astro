@@ -1,0 +1,72 @@
+---
+import '@fontsource-variable/source-sans-3/wght.css';
+import '@fontsource-variable/source-sans-3/wght-italic.css';
+import '@fontsource-variable/source-serif-4/opsz.css';
+import '@fontsource-variable/source-serif-4/opsz-italic.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getSite, getSections } from '../lib/content';
+import { pick, withBase, localePath, otherLang, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  /** Page path without language prefix, e.g. '' for home, 'news/' for news. */
+  path?: string;
+  title?: string;
+  description?: string;
+}
+
+const { lang, path = '', title, description } = Astro.props;
+const site = getSite();
+const sections = getSections();
+const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${pick(site, 'title', lang)}`;
+const desc = description || `${pick(site, 'title', lang)}, ${pick(site, 'affiliation', lang)}. ${pick(site, 'tagline', lang)}`;
+const canonical = new URL(withBase(localePath(lang, path)), Astro.site).href;
+const alternates = (['en', 'fr'] as Lang[]).map((l) => ({ lang: l, href: new URL(withBase(localePath(l, path)), Astro.site).href }));
+const other = otherLang(lang);
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    <link rel="alternate" hreflang="x-default" href={alternates[0].href} />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)" />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark' || saved === 'light') document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    </script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_GB'} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: site.name,
+      jobTitle: pick(site, 'title', lang),
+      affiliation: { '@type': 'CollegeOrUniversity', name: 'INSA Strasbourg' },
+      email: site.email ? `mailto:${site.email}` : undefined,
+      url: canonical,
+      sameAs: (site.links || []).map((l: any) => l.url),
+    })} />
+  </head>
+  <body>
+    <Header lang={lang} path={path} sections={sections} other={other} name={site.name} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

@@ -1,0 +1,28 @@
+---
+import Section from '../Section.astro';
+import { t, pick, type Lang } from '../../lib/i18n';
+import { getTeaching } from '../../lib/content';
+
+interface Props { lang: Lang; title: string; alt?: boolean }
+const { lang, title, alt } = Astro.props;
+const s = t(lang);
+const teaching = getTeaching();
+const courses: any[] = teaching.courses || [];
+---
+<Section id="teaching" title={title} alt={alt}>
+  {pick(teaching, 'intro', lang) && <p class="research-intro">{pick(teaching, 'intro', lang)}</p>}
+  {courses.length > 0 && (
+    <ul class="news-list">
+      {courses.map((c) => (
+        <li class="news-item">
+          <span class="muted">{c.level}</span>
+          <div>
+            <h3>{pick(c, 'title', lang)}</h3>
+            {pick(c, 'description', lang) && <p>{pick(c, 'description', lang)}</p>}
+          </div>
+        </li>
+      ))}
+    </ul>
+  )}
+  {pick(teaching, 'student_projects', lang) && <p style="margin-top:1.5rem">{pick(teaching, 'student_projects', lang)}</p>}
+</Section>

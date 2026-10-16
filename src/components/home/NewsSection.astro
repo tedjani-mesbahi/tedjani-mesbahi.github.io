@@ -1,0 +1,23 @@
+---
+import Section from '../Section.astro';
+import { t, pick, href, formatDate, type Lang } from '../../lib/i18n';
+
+interface Props { lang: Lang; title: string; items: Record<string, any>[]; alt?: boolean }
+const { lang, title, items, alt } = Astro.props;
+const s = t(lang);
+---
+<Section id="news" title={title} intro={s.page_news_intro} moreHref={href(lang, 'news/')} moreLabel={s.all_news} alt={alt}>
+  {items.length === 0 ? <p class="empty">{s.news_empty}</p> : (
+    <ul class="news-list">
+      {items.map((n) => (
+        <li class="news-item">
+          <time class="num" datetime={n.date}>{formatDate(n.date, lang, 'short')}</time>
+          <div>
+            <h3><span class="tag">{s.categories[n.category] || s.categories.other}</span><a href={href(lang, `news/${n.slug}/`)}>{pick(n, 'title', lang)}</a></h3>
+            <p>{pick(n, 'summary', lang)}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  )}
+</Section>

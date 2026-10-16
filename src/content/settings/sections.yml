@@ -1,0 +1,43 @@
+# Ordre et visibilité des rubriques de la page d'accueil — modifiable dans le CMS (Réglages > Rubriques)
+# Faites glisser les rubriques pour changer l'ordre ; décochez « Afficher » pour masquer une rubrique.
+sections:
+  - id: news
+    visible: true
+    title_fr: Actualités
+    title_en: News
+  - id: research
+    visible: true
+    title_fr: Recherche
+    title_en: Research
+  - id: projects
+    visible: true
+    title_fr: Projets
+    title_en: Projects
+  - id: publications
+    visible: true
+    title_fr: Publications
+    title_en: Publications
+  - id: blog
+    visible: true
+    title_fr: Blog
+    title_en: Blog
+  - id: team
+    visible: true
+    title_fr: Équipe & thèses
+    title_en: Team & theses
+  - id: media
+    visible: true
+    title_fr: Médias
+    title_en: Media
+  - id: about
+    visible: true
+    title_fr: Parcours
+    title_en: About
+  - id: teaching
+    visible: false
+    title_fr: Enseignement
+    title_en: Teaching
+  - id: contact
+    visible: true
+    title_fr: Contact
+    title_en: Contact

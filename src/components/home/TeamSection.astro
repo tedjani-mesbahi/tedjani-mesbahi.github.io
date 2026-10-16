@@ -1,0 +1,43 @@
+---
+import Section from '../Section.astro';
+import { t, pick, type Lang } from '../../lib/i18n';
+import { getTeam, getSite } from '../../lib/content';
+
+interface Props { lang: Lang; title: string; alt?: boolean }
+const { lang, title, alt } = Astro.props;
+const s = t(lang);
+const team = getTeam();
+const site = getSite();
+const members: any[] = team.members || [];
+const groups = [
+  { label: s.phd_current, list: members.filter((m) => m.role === 'phd' && m.status === 'current') },
+  { label: s.staff, list: members.filter((m) => m.role !== 'phd' && m.status === 'current') },
+  { label: s.phd_alumni, list: members.filter((m) => m.role === 'phd' && m.status === 'alumni').sort((a, b) => String(b.years).localeCompare(String(a.years))) },
+].filter((g) => g.list.length);
+const initials = (name: string) => name.split(/\s+/).map((w) => w[0]).slice(0, 2).join('');
+---
+<Section id="team" title={title} intro={pick(team, 'intro', lang)} alt={alt}>
+  {groups.map((g) => (
+    <div class="people">
+      <h3>{g.label}</h3>
+      <ul class="person-list">
+        {g.list.map((m) => (
+          <li class="person">
+            <span class="person__initials" aria-hidden="true">{initials(m.name)}</span>
+            <div>
+              <p class="person__name">{m.link ? <a href={m.link} rel="noopener">{m.name}</a> : m.name}{m.years && <span class="num"> · {m.years}</span>}</p>
+              {pick(m, 'topic', lang) && <p class="person__topic">{pick(m, 'topic', lang)}</p>}
+              {m.with && <p class="person__with">{s.with} {m.with}</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+  {pick(site, 'open_positions', lang) && (
+    <div class="positions">
+      <strong>{s.open_positions}</strong>
+      <p>{pick(site, 'open_positions', lang)} {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}</p>
+    </div>
+  )}
+</Section>

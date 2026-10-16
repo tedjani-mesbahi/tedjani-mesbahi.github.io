@@ -1,0 +1,104 @@
+# Équipe et thèses — modifiable dans le CMS (Pages > Équipe & thèses)
+intro_fr: Doctorants et chercheurs encadrés à l'INSA Strasbourg et au laboratoire ICube, souvent en co-direction avec les équipes EM3 et SDC.
+intro_en: PhD students and researchers supervised at INSA Strasbourg and the ICube Laboratory, often jointly with the EM3 and SDC teams.
+members:
+  - name: Skander Smaoui
+    role: phd
+    status: current
+    topic: Commande intelligente synchronverter dans les micro-réseaux à stockage hybride et énergies renouvelables
+    with: ''
+    years: ''
+    link: https://theses.fr/s431722
+  - name: Paolo Charles
+    role: phd
+    status: current
+    topic: Modélisation multiphysique 3D et diagnostic thermique haute fidélité pour la prévention de l'emballement thermique dans les batteries lithium-ion
+    with: Hicham Chibane
+    years: ''
+    link: https://theses.fr/s438358
+  - name: Anuj Nayak
+    role: phd
+    status: current
+    topic: Analyse et modélisation du vieillissement des batteries Li-ion à l'aide de l'intelligence artificielle
+    with: Ahmed Samet
+    years: ''
+    link: https://theses.fr/s412252
+  - name: Marwa Zitouni
+    role: phd
+    status: current
+    topic: Diagnostic explicable basé sur la connaissance pour les batteries lithium-ion
+    with: Ahmed Samet
+    years: ''
+    link: https://theses.fr/s369701
+  - name: Slimane Arbaoui
+    role: phd
+    status: current
+    topic: Fouille d'un ensemble condensé de motifs à partir de séries temporelles pour une prédiction explicable
+    with: Romuald Boné
+    years: ''
+    link: https://theses.fr/s370506
+  - name: Cyrine Soufi
+    role: phd
+    status: current
+    topic: Passeport numérique des batteries pour un coût total de possession maîtrisé et une empreinte carbone réduite, grâce à l'apprentissage automatique et à un BMS intelligent
+    with: Christophe Lallement
+    years: ''
+    link: https://theses.fr/s371924
+  - name: Théo Heitzmann
+    role: phd
+    status: alumni
+    topic: Prédiction explicable du vieillissement des batteries lithium-ion pour une prolongation intelligente de leur durée de vie dans le domaine de la mobilité électrique
+    with: Romuald Boné
+    years: '2025'
+    link: https://theses.fr/2025STRAD029
+  - name: Thomas Pavot
+    role: phd
+    status: alumni
+    topic: Commande avancée d'une source d'énergie hybride pile à combustible – batterie – supercondensateur pour un drone de longue endurance
+    with: Édouard Laroche, Renaud Kiefer
+    years: '2024'
+    link: https://theses.fr/2024STRAD064
+  - name: Lakhdar Mamouri
+    role: phd
+    status: alumni
+    topic: Architecture mixte pour le suivi du point de puissance maximal d'un système de récupération d'énergie piézoélectrique
+    with: Vincent Frick
+    years: '2023'
+    link: https://theses.fr/2023STRAD065
+  - name: Inès Jorge
+    role: phd
+    status: alumni
+    topic: Machine-learning-based predictive maintenance for lithium-ion batteries in electric vehicles
+    with: Romuald Boné, Ahmed Samet
+    years: '2023'
+    link: https://theses.fr/2023STRAD056
+  - name: Yasser Ghoulam
+    role: phd
+    status: alumni
+    topic: Modélisation multi-physique et gestion intelligente de l'énergie d'un système de stockage hybride batterie Li-ion / supercondensateur pour véhicules électriques
+    with: Christophe Lallement
+    years: '2023'
+    link: https://theses.fr/2023STRAD069
+  - name: Théophile Paul
+    role: phd
+    status: alumni
+    topic: Dimensionnement et gestion intelligente d'un système de stockage d'énergie hybride pour un chariot élévateur dans l'industrie 4.0
+    with: Wilfried Uhring
+    years: '2022'
+    link: https://recherche.insa-strasbourg.fr/soutenance-de-these-de-theophile-paul-le-01-07-equipe-systemes-et-microsystemes-heterogenes-icube/
+  - name: Lakhdar Mamouri
+    role: postdoc
+    status: current
+    topic: Post-doctorant — stockage hybride et projet ENERGETIC
+    topic_en: Postdoctoral researcher — hybrid storage and the ENERGETIC project
+    with: ''
+    years: ''
+    link: ''
+  - name: Thomas Pavot
+    role: engineer
+    status: current
+    topic: Ingénieur d'étude — plateforme de vieillissement de batteries
+    topic_en: Research engineer — battery ageing platform
+    with: ''
+    years: ''
+    link: ''

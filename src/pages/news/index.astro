@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import NewsIndex from '../../components/pages/NewsIndex.astro';
+import { t } from '../../lib/i18n';
+---
+<Base lang="en" path="news/" title={t('en').page_news_title}>
+  <NewsIndex lang="en" />
+</Base>

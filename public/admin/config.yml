@@ -1,0 +1,846 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms@0.227.4/schema/sveltia-cms.json
+#
+# Espace d'édition du site (Sveltia CMS), ouvert à l'adresse /admin/ du site.
+# Chaque enregistrement crée un commit sur GitHub ; le site se met à jour en 1 à 2 minutes.
+# "OWNER/REPO" est remplacé automatiquement par : npm run setup -- --repo compte/depot
+
+backend:
+  name: github
+  repo: OWNER/REPO
+  branch: main
+  auth_methods:
+    - token
+  commit_messages:
+    create: Ajout {{collection}} « {{slug}} »
+    update: Mise à jour {{collection}} « {{slug}} »
+    delete: Suppression {{collection}} « {{slug}} »
+    uploadMedia: Ajout du fichier « {{path}} »
+    deleteMedia: Suppression du fichier « {{path}} »
+media_folder: public/uploads
+public_folder: /uploads
+site_url: https://OWNER.github.io/REPO/
+display_url: https://OWNER.github.io/REPO/
+collections:
+  - name: news
+    label: Actualités
+    label_singular: Actualité
+    description: Interventions dans les médias, projets, événements, distinctions, soutenances… Les plus récentes apparaissent en premier sur la page d'accueil.
+    icon: newspaper
+    folder: src/content/news
+    format: yml
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: title_fr
+    summary: "{{date}} · {{title_fr}}"
+    sortable_fields:
+      fields:
+        - date
+        - title_fr
+        - category
+      default:
+        field: date
+        direction: descending
+    view_filters:
+      - label: Médias
+        field: category
+        pattern: media
+      - label: Projets
+        field: category
+        pattern: project
+      - label: À la une
+        field: featured
+        pattern: true
+    fields:
+      - name: title_fr
+        label: Titre (français)
+        widget: string
+      - name: title_en
+        label: Titre (anglais)
+        widget: string
+        required: false
+        hint: Facultatif. Si vide, le titre français est affiché sur la version anglaise.
+      - name: date
+        label: Date
+        widget: datetime
+        type: date
+        picker_utc: true
+      - name: category
+        label: Catégorie
+        widget: select
+        default: event
+        options:
+          - label: Médias (TV, presse, radio)
+            value: media
+          - label: Projet de recherche
+            value: project
+          - label: Événement / conférence
+            value: event
+          - label: Distinction / prix
+            value: award
+          - label: Soutenance de thèse
+            value: thesis
+          - label: Action grand public
+            value: outreach
+          - label: Publication
+            value: publication
+          - label: Autre
+            value: other
+      - name: featured
+        label: À la une
+        widget: boolean
+        default: false
+        required: false
+        hint: Met cette actualité en avant.
+      - name: summary_fr
+        label: Résumé (français)
+        widget: text
+        hint: Deux ou trois phrases affichées dans la liste des actualités.
+      - name: summary_en
+        label: Résumé (anglais)
+        widget: text
+        required: false
+      - name: body_fr
+        label: Texte complet (français)
+        widget: markdown
+        required: false
+        hint: Facultatif. Affiché sur la page de l'actualité.
+      - name: body_en
+        label: Texte complet (anglais)
+        widget: markdown
+        required: false
+      - name: outlet
+        label: Média ou lieu
+        widget: string
+        required: false
+        hint: "Ex. : France 2, Savoir(s), SIS 67. Affiché dans la rubrique Médias."
+      - name: link
+        label: Lien vers la source
+        widget: string
+        required: false
+        hint: Adresse complète commençant par https://
+      - name: source
+        label: Nom de la source
+        widget: string
+        required: false
+        hint: "Ex. : INSA Strasbourg"
+      - name: image
+        label: Image
+        widget: image
+        required: false
+  - name: blog
+    label: Blog
+    label_singular: Billet
+    description: Écrivez dans une seule langue (français ou anglais) ; le billet apparaît sur les deux versions du site.
+    icon: edit_note
+    folder: src/content/blog
+    format: yaml-frontmatter
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{date}} · {{title}}"
+    sortable_fields:
+      fields:
+        - date
+        - title
+      default:
+        field: date
+        direction: descending
+    fields:
+      - name: title
+        label: Titre
+        widget: string
+      - name: date
+        label: Date
+        widget: datetime
+        type: date
+        picker_utc: true
+      - name: lang
+        label: Langue du billet
+        widget: select
+        default: fr
+        options:
+          - label: Français
+            value: fr
+          - label: Anglais
+            value: en
+      - name: summary
+        label: Chapeau
+        widget: text
+        required: false
+        hint: Une ou deux phrases d'introduction.
+      - name: cover
+        label: Image de couverture
+        widget: image
+        required: false
+      - name: tags
+        label: Mots-clés
+        widget: list
+        required: false
+      - name: draft
+        label: Brouillon (non publié)
+        widget: boolean
+        default: false
+        required: false
+      - name: body
+        label: Texte
+        widget: markdown
+  - name: publications
+    label: Publications
+    label_singular: Publication
+    description: Les nouvelles publications déposées sur HAL sont ajoutées automatiquement chaque semaine. Cochez « Sélectionnée » pour afficher une publication sur la page d'accueil.
+    icon: menu_book
+    folder: src/content/publications
+    format: yml
+    create: true
+    delete: true
+    slug: "{{year}}-{{slug}}"
+    summary: "{{year}} · {{title}}"
+    sortable_fields:
+      fields:
+        - year
+        - title
+        - type
+      default:
+        field: year
+        direction: descending
+    view_filters:
+      - label: Sélectionnées (page d'accueil)
+        field: featured
+        pattern: true
+      - label: Revues
+        field: type
+        pattern: journal
+      - label: Conférences
+        field: type
+        pattern: conference
+    fields:
+      - name: title
+        label: Titre
+        widget: string
+      - name: authors
+        label: Auteurs
+        widget: text
+        hint: "Séparés par des virgules. Ex. : Tedjani Mesbahi, Ahmed Samet"
+      - name: year
+        label: Année
+        widget: number
+        value_type: int
+      - name: type
+        label: Type
+        widget: select
+        default: journal
+        options:
+          - label: Article de revue
+            value: journal
+          - label: Communication (conférence)
+            value: conference
+          - label: Poster
+            value: poster
+          - label: Chapitre d'ouvrage
+            value: chapter
+          - label: Ouvrage
+            value: book
+          - label: Thèse
+            value: thesis
+          - label: HDR
+            value: hdr
+          - label: Rapport
+            value: report
+          - label: Brevet
+            value: patent
+          - label: Autre
+            value: other
+      - name: venue
+        label: Revue ou conférence
+        widget: string
+        required: false
+      - name: details
+        label: Volume / numéro / pages
+        widget: string
+        required: false
+      - name: doi
+        label: DOI
+        widget: string
+        required: false
+        hint: "Sans « https://doi.org/ ». Ex. : 10.1109/TIE.2020.2984426"
+      - name: url
+        label: Lien (HAL ou autre)
+        widget: string
+        required: false
+      - name: hal_id
+        label: Identifiant HAL
+        widget: string
+        required: false
+      - name: abbr
+        label: Badge (abréviation)
+        widget: string
+        required: false
+        hint: "Facultatif. Ex. : IEEE TIE. Calculé automatiquement si vide."
+      - name: pdf
+        label: Fichier PDF
+        widget: file
+        required: false
+      - name: featured
+        label: Sélectionnée (page d'accueil)
+        widget: boolean
+        default: false
+        required: false
+      - name: hidden
+        label: Masquer du site
+        widget: boolean
+        default: false
+        required: false
+  - name: projects
+    label: Projets
+    label_singular: Projet
+    icon: rocket_launch
+    folder: src/content/projects
+    format: yml
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}}"
+    sortable_fields:
+      fields:
+        - order
+        - name
+      default:
+        field: order
+        direction: ascending
+    fields:
+      - name: name
+        label: Nom court (acronyme)
+        widget: string
+      - name: order
+        label: Ordre d'affichage
+        widget: number
+        value_type: int
+        default: 10
+        hint: 1 = premier.
+      - name: status
+        label: Statut
+        widget: select
+        default: ongoing
+        options:
+          - label: En cours
+            value: ongoing
+          - label: Terminé
+            value: completed
+      - name: programme
+        label: Programme / financeur (français)
+        widget: string
+        required: false
+      - name: programme_en
+        label: Programme / financeur (anglais)
+        widget: string
+        required: false
+      - name: role_fr
+        label: Rôle (français)
+        widget: string
+      - name: role_en
+        label: Rôle (anglais)
+        widget: string
+        required: false
+      - name: period
+        label: Période
+        widget: string
+        required: false
+        hint: "Ex. : 2023 – 2026"
+      - name: period_fr
+        label: Période en toutes lettres (français)
+        widget: string
+        required: false
+        hint: "Facultatif. Ex. : En cours"
+      - name: period_en
+        label: Période en toutes lettres (anglais)
+        widget: string
+        required: false
+        hint: "Facultatif. Ex. : Ongoing"
+      - name: budget
+        label: Budget
+        widget: string
+        required: false
+      - name: partners_fr
+        label: Partenaires (français)
+        widget: string
+        required: false
+      - name: partners_en
+        label: Partenaires (anglais)
+        widget: string
+        required: false
+      - name: title_fr
+        label: Intitulé complet (français)
+        widget: string
+      - name: title_en
+        label: Intitulé complet (anglais)
+        widget: string
+        required: false
+      - name: summary_fr
+        label: Description (français)
+        widget: text
+      - name: summary_en
+        label: Description (anglais)
+        widget: text
+        required: false
+      - name: link
+        label: Lien vers la page du projet
+        widget: string
+        required: false
+      - name: grant
+        label: Numéro de convention
+        widget: string
+        required: false
+      - name: hidden
+        label: Masquer du site
+        widget: boolean
+        default: false
+        required: false
+  - name: pages
+    label: Pages
+    description: Textes des rubriques de la page d'accueil.
+    icon: article
+    files:
+      - name: about
+        label: Biographie et parcours
+        file: src/content/settings/about.yml
+        fields:
+          - name: bio_fr
+            label: Biographie (français)
+            widget: markdown
+          - name: bio_en
+            label: Biographie (anglais)
+            widget: markdown
+            required: false
+          - name: interests_fr
+            label: Thèmes de recherche (français)
+            widget: list
+          - name: interests_en
+            label: Thèmes de recherche (anglais)
+            widget: list
+            required: false
+          - name: education
+            label: Diplômes
+            label_singular: diplôme
+            widget: list
+            required: false
+            summary: "{{year}} · {{title_fr}}"
+            fields:
+              - name: year
+                label: Année
+                widget: string
+              - name: title_fr
+                label: Diplôme (français)
+                widget: string
+              - name: title_en
+                label: Diplôme (anglais)
+                widget: string
+                required: false
+              - name: place
+                label: Établissement
+                widget: string
+                required: false
+          - name: timeline
+            label: Parcours (du plus récent au plus ancien)
+            label_singular: étape
+            widget: list
+            summary: "{{period}} · {{title_fr}}"
+            fields:
+              - name: period
+                label: Période
+                widget: string
+                hint: "Ex. : 2019 – 2022"
+              - name: title_fr
+                label: Fonction (français)
+                widget: string
+              - name: title_en
+                label: Fonction (anglais)
+                widget: string
+                required: false
+              - name: place
+                label: Lieu / établissement
+                widget: string
+                required: false
+              - name: detail_fr
+                label: Détail (français)
+                widget: text
+                required: false
+              - name: detail_en
+                label: Détail (anglais)
+                widget: text
+                required: false
+          - name: distinctions
+            label: Distinctions
+            label_singular: distinction
+            widget: list
+            required: false
+            summary: "{{year}} · {{title_fr}}"
+            fields:
+              - name: year
+                label: Année
+                widget: string
+              - name: title_fr
+                label: Distinction (français)
+                widget: string
+              - name: title_en
+                label: Distinction (anglais)
+                widget: string
+                required: false
+          - name: service_fr
+            label: Activités collectives (français)
+            widget: list
+            required: false
+          - name: service_en
+            label: Activités collectives (anglais)
+            widget: list
+            required: false
+      - name: research
+        label: Recherche
+        file: src/content/settings/research.yml
+        fields:
+          - name: intro_fr
+            label: Introduction (français)
+            widget: text
+          - name: intro_en
+            label: Introduction (anglais)
+            widget: text
+            required: false
+          - name: themes
+            label: Thèmes
+            label_singular: thème
+            widget: list
+            summary: "{{title_fr}}"
+            fields:
+              - name: code
+                label: Code court
+                widget: string
+                required: false
+              - name: icon
+                label: Icône
+                widget: select
+                default: model
+                options:
+                  - label: Batterie (modélisation)
+                    value: model
+                  - label: Stockage hybride
+                    value: hybrid
+                  - label: Intelligence artificielle
+                    value: ai
+                  - label: Flamme (sécurité)
+                    value: flame
+                  - label: Moteur
+                    value: motor
+                  - label: Passeport / traçabilité
+                    value: passport
+                  - label: Laboratoire
+                    value: flask
+                  - label: Idée
+                    value: bulb
+              - name: title_fr
+                label: Titre (français)
+                widget: string
+              - name: title_en
+                label: Titre (anglais)
+                widget: string
+                required: false
+              - name: text_fr
+                label: Description (français)
+                widget: text
+              - name: text_en
+                label: Description (anglais)
+                widget: text
+                required: false
+              - name: keywords
+                label: Mots-clés
+                widget: list
+                required: false
+          - name: facilities_fr
+            label: Équipements (français)
+            widget: text
+            required: false
+          - name: facilities_en
+            label: Équipements (anglais)
+            widget: text
+            required: false
+      - name: team
+        label: Équipe et thèses
+        file: src/content/settings/team.yml
+        fields:
+          - name: intro_fr
+            label: Introduction (français)
+            widget: text
+            required: false
+          - name: intro_en
+            label: Introduction (anglais)
+            widget: text
+            required: false
+          - name: members
+            label: Membres
+            label_singular: membre
+            widget: list
+            summary: "{{name}} · {{role}} · {{status}}"
+            fields:
+              - name: name
+                label: Nom
+                widget: string
+              - name: role
+                label: Rôle
+                widget: select
+                default: phd
+                options:
+                  - label: Doctorant(e)
+                    value: phd
+                  - label: Post-doctorant(e)
+                    value: postdoc
+                  - label: Ingénieur(e)
+                    value: engineer
+                  - label: Autre
+                    value: other
+              - name: status
+                label: Statut
+                widget: select
+                default: current
+                options:
+                  - label: En cours
+                    value: current
+                  - label: Ancien(ne) / thèse soutenue
+                    value: alumni
+              - name: topic
+                label: Sujet de thèse ou poste
+                widget: text
+                required: false
+              - name: topic_en
+                label: Sujet ou poste (anglais)
+                widget: text
+                required: false
+                hint: Facultatif. Laissez vide pour un titre de thèse.
+              - name: with
+                label: Co-encadrement
+                widget: string
+                required: false
+              - name: years
+                label: Année de soutenance
+                widget: string
+                required: false
+              - name: link
+                label: Lien (theses.fr…)
+                widget: string
+                required: false
+      - name: teaching
+        label: Enseignement
+        file: src/content/settings/teaching.yml
+        fields:
+          - name: intro_fr
+            label: Introduction (français)
+            widget: text
+            required: false
+          - name: intro_en
+            label: Introduction (anglais)
+            widget: text
+            required: false
+          - name: courses
+            label: Cours
+            label_singular: cours
+            widget: list
+            required: false
+            summary: "{{title_fr}}"
+            fields:
+              - name: title_fr
+                label: Intitulé (français)
+                widget: string
+              - name: title_en
+                label: Intitulé (anglais)
+                widget: string
+                required: false
+              - name: level
+                label: Niveau
+                widget: string
+                required: false
+                hint: "Ex. : 4e année génie électrique"
+              - name: description_fr
+                label: Description (français)
+                widget: text
+                required: false
+              - name: description_en
+                label: Description (anglais)
+                widget: text
+                required: false
+          - name: student_projects_fr
+            label: Projets d'élèves (français)
+            widget: text
+            required: false
+          - name: student_projects_en
+            label: Projets d'élèves (anglais)
+            widget: text
+            required: false
+  - name: settings
+    label: Réglages
+    description: Profil, coordonnées et organisation de la page d'accueil.
+    icon: settings
+    files:
+      - name: site
+        label: Profil et coordonnées
+        file: src/content/settings/site.yml
+        fields:
+          - name: name
+            label: Nom complet
+            widget: string
+          - name: short_name
+            label: Nom court
+            widget: string
+            required: false
+          - name: title_fr
+            label: Titre (français)
+            widget: string
+          - name: title_en
+            label: Titre (anglais)
+            widget: string
+            required: false
+          - name: tagline_fr
+            label: Phrase d'accroche (français)
+            widget: text
+          - name: tagline_en
+            label: Phrase d'accroche (anglais)
+            widget: text
+            required: false
+          - name: affiliation_fr
+            label: Affiliation (français)
+            widget: string
+          - name: affiliation_en
+            label: Affiliation (anglais)
+            widget: string
+            required: false
+          - name: photo
+            label: Photo de profil
+            widget: image
+            required: false
+            hint: Photo carrée de préférence (au moins 400 × 400 pixels).
+          - name: photo_alt_fr
+            label: Description de la photo (français)
+            widget: string
+            required: false
+          - name: photo_alt_en
+            label: Description de la photo (anglais)
+            widget: string
+            required: false
+          - name: cv
+            label: CV (PDF)
+            widget: file
+            required: false
+          - name: email
+            label: E-mail
+            widget: string
+            required: false
+          - name: phone
+            label: Téléphone
+            widget: string
+            required: false
+          - name: address_fr
+            label: Adresse (français)
+            widget: text
+            required: false
+          - name: address_en
+            label: Adresse (anglais)
+            widget: text
+            required: false
+          - name: office
+            label: Bureau
+            widget: string
+            required: false
+          - name: open_positions_fr
+            label: Postes ouverts (français)
+            widget: text
+            required: false
+          - name: open_positions_en
+            label: Postes ouverts (anglais)
+            widget: text
+            required: false
+          - name: metrics
+            label: Indicateurs bibliométriques
+            widget: object
+            required: false
+            fields:
+              - name: source
+                label: Source
+                widget: string
+                default: Google Scholar
+              - name: as_of
+                label: Date des chiffres (AAAA-MM)
+                widget: string
+                required: false
+              - name: citations
+                label: Citations
+                widget: number
+                value_type: int
+                required: false
+              - name: h_index
+                label: Indice h
+                widget: number
+                value_type: int
+                required: false
+              - name: i10_index
+                label: Indice i10
+                widget: number
+                value_type: int
+                required: false
+          - name: links
+            label: Profils en ligne
+            label_singular: lien
+            widget: list
+            summary: "{{label}}"
+            fields:
+              - name: label
+                label: Nom
+                widget: string
+                hint: Google Scholar, ORCID, HAL, LinkedIn, ResearchGate, Scopus, dblp… (icône automatique)
+              - name: url
+                label: Adresse
+                widget: string
+      - name: sections
+        label: Rubriques de la page d'accueil
+        file: src/content/settings/sections.yml
+        fields:
+          - name: sections
+            label: Rubriques
+            label_singular: rubrique
+            widget: list
+            hint: Faites glisser pour changer l'ordre. Décochez « Afficher » pour masquer une rubrique.
+            allow_add: false
+            allow_remove: false
+            summary: "{{title_fr}}"
+            fields:
+              - name: id
+                label: Rubrique
+                widget: select
+                options:
+                  - label: Actualités
+                    value: news
+                  - label: Recherche
+                    value: research
+                  - label: Projets
+                    value: projects
+                  - label: Publications
+                    value: publications
+                  - label: Blog
+                    value: blog
+                  - label: Équipe et thèses
+                    value: team
+                  - label: Médias
+                    value: media
+                  - label: Parcours
+                    value: about
+                  - label: Enseignement
+                    value: teaching
+                  - label: Contact
+                    value: contact
+              - name: visible
+                label: Afficher
+                widget: boolean
+                default: true
+              - name: title_fr
+                label: Titre (français)
+                widget: string
+              - name: title_en
+                label: Titre (anglais)
+                widget: string

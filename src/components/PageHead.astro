@@ -1,0 +1,14 @@
+---
+import Circuit from './Circuit.astro';
+interface Props { title: string; intro?: string; backHref?: string; backLabel?: string }
+const { title, intro, backHref, backLabel } = Astro.props;
+---
+<header class="page-head">
+  <Circuit />
+  <div class="wrap">
+    {backHref && <p class="breadcrumb"><a href={backHref}>← {backLabel}</a></p>}
+    <h1>{title}</h1>
+    {intro && <p>{intro}</p>}
+    <slot />
+  </div>
+</header>

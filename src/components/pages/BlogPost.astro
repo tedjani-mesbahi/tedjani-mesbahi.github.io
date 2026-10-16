@@ -1,0 +1,24 @@
+---
+import PageHead from '../PageHead.astro';
+import { t, href, withBase, formatDate, type Lang } from '../../lib/i18n';
+import { markdown } from '../../lib/content';
+
+interface Props { lang: Lang; post: Record<string, any> }
+const { lang, post } = Astro.props;
+const s = t(lang);
+---
+<PageHead title={post.title} backHref={href(lang, 'blog/')} backLabel={s.back_blog}>
+  <p class="article-meta">
+    <time class="num" datetime={post.date}>{formatDate(post.date, lang)}</time>
+    <span>{s.reading_time(post.minutes)}</span>
+    {post.lang !== lang && <span class="tag tag--plain">{s.written_in[post.lang]}</span>}
+    {(post.tags || []).map((tag: string) => <span class="tag">{tag}</span>)}
+  </p>
+</PageHead>
+<div class="wrap page-body">
+  {post.cover && <img class="article-cover" src={withBase(post.cover)} alt="" />}
+  <article class="prose" lang={post.lang}>
+    {post.summary && <p style="font-size:1.15rem;color:var(--muted)">{post.summary}</p>}
+    <Fragment set:html={markdown(post.body)} />
+  </article>
+</div>

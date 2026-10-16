@@ -1,0 +1,66 @@
+---
+import PageHead from '../PageHead.astro';
+import PubItem from '../PubItem.astro';
+import { t, href, type Lang } from '../../lib/i18n';
+import { getPublications } from '../../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const pubs = getPublications();
+const years = [...new Set(pubs.map((p) => p.year))].sort((a, b) => b - a);
+const typeOrder = ['journal', 'conference', 'chapter', 'book', 'thesis', 'hdr', 'report', 'poster', 'patent', 'other'];
+const types = typeOrder.filter((type) => pubs.some((p) => p.type === type));
+const counts = Object.fromEntries(types.map((type) => [type, pubs.filter((p) => p.type === type).length]));
+---
+<PageHead title={s.page_pubs_title} intro={s.page_pubs_intro} backHref={href(lang)} backLabel={s.home} />
+<div class="wrap page-body" data-pubs>
+  <div class="pub-tools" role="search">
+    <label class="visually-hidden" for="pub-search">{s.search_label}</label>
+    <input id="pub-search" type="search" placeholder={s.search_placeholder} autocomplete="off" data-search />
+    <div class="chips" role="group" aria-label={s.filter_label}>
+      <button class="chip" type="button" aria-pressed="true" data-type="all">{s.filter_all} <span class="num">({pubs.length})</span></button>
+      {types.map((type) => <button class="chip" type="button" aria-pressed="false" data-type={type}>{s.types[type]} <span class="num">({counts[type]})</span></button>)}
+    </div>
+    <p class="pub-count" aria-live="polite" data-count>{s.results(pubs.length)}</p>
+  </div>
+  {years.map((year) => (
+    <section class="year-group" id={`y${year}`} aria-labelledby={`yt-${year}`} data-year-group>
+      <h2 class="year-group__title num" id={`yt-${year}`}>{year}</h2>
+      <ul class="pubs">
+        {pubs.filter((p) => p.year === year).map((pub) => <PubItem pub={pub} lang={lang} />)}
+      </ul>
+    </section>
+  ))}
+</div>
+
+<script define:vars={{ resultsFr: lang === 'fr' }}>
+  const root = document.querySelector('[data-pubs]');
+  if (root) {
+    const input = root.querySelector('[data-search]');
+    const chips = [...root.querySelectorAll('.chip')];
+    const items = [...root.querySelectorAll('.pub')];
+    const groups = [...root.querySelectorAll('[data-year-group]')];
+    const count = root.querySelector('[data-count]');
+    let type = 'all';
+    const apply = () => {
+      const q = (input.value || '').trim().toLowerCase();
+      let shown = 0;
+      for (const item of items) {
+        const ok = (type === 'all' || item.dataset.type === type) && (!q || item.dataset.search.includes(q));
+        item.hidden = !ok;
+        if (ok) shown += 1;
+      }
+      for (const group of groups) group.hidden = !group.querySelector('.pub:not([hidden])');
+      count.textContent = resultsFr ? `${shown} résultat${shown > 1 ? 's' : ''}` : `${shown} result${shown === 1 ? '' : 's'}`;
+    };
+    input.addEventListener('input', apply);
+    for (const chip of chips) {
+      chip.addEventListener('click', () => {
+        type = chip.dataset.type;
+        for (const c of chips) c.setAttribute('aria-pressed', String(c === chip));
+        apply();
+      });
+    }
+  }
+</script>

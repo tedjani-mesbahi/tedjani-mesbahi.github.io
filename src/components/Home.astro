@@ -1,0 +1,41 @@
+---
+import Profile from './home/Profile.astro';
+import NewsSection from './home/NewsSection.astro';
+import ResearchSection from './home/ResearchSection.astro';
+import ProjectsSection from './home/ProjectsSection.astro';
+import PublicationsSection from './home/PublicationsSection.astro';
+import BlogSection from './home/BlogSection.astro';
+import TeamSection from './home/TeamSection.astro';
+import MediaSection from './home/MediaSection.astro';
+import AboutSection from './home/AboutSection.astro';
+import TeachingSection from './home/TeachingSection.astro';
+import ContactSection from './home/ContactSection.astro';
+import { getSections, getNews, getPosts } from '../lib/content';
+import type { Lang } from '../lib/i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const hasPosts = getPosts().length > 0;
+const hasMedia = getNews().some((n) => n.category === 'media' || n.category === 'outreach');
+const sections = getSections().filter((s) => s.visible && (s.id !== 'blog' || hasPosts) && (s.id !== 'media' || hasMedia));
+const news = getNews().slice(0, 6);
+const titleOf = (sec: any) => (lang === 'fr' ? sec.title_fr : sec.title_en) || sec.title_fr || sec.id;
+const components: Record<string, any> = {
+  research: ResearchSection,
+  projects: ProjectsSection,
+  publications: PublicationsSection,
+  blog: BlogSection,
+  team: TeamSection,
+  media: MediaSection,
+  about: AboutSection,
+  teaching: TeachingSection,
+  contact: ContactSection,
+};
+---
+<Profile lang={lang} />
+{sections.map((sec, i) => {
+  const alt = i % 2 === 1;
+  if (sec.id === 'news') return <NewsSection lang={lang} title={titleOf(sec)} items={news} alt={alt} />;
+  const Component = components[sec.id];
+  return Component ? <Component lang={lang} title={titleOf(sec)} alt={alt} /> : null;
+})}

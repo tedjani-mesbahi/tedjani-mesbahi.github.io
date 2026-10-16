@@ -1,0 +1,23 @@
+---
+import PageHead from '../PageHead.astro';
+import { t, pick, href, withBase, formatDate, type Lang } from '../../lib/i18n';
+import { markdown } from '../../lib/content';
+
+interface Props { lang: Lang; item: Record<string, any> }
+const { lang, item } = Astro.props;
+const s = t(lang);
+const body = pick(item, 'body', lang);
+---
+<PageHead title={pick(item, 'title', lang)} backHref={href(lang, 'news/')} backLabel={s.back_news}>
+  <p class="article-meta"><span class="tag">{s.categories[item.category] || s.categories.other}</span><time class="num" datetime={item.date}>{formatDate(item.date, lang)}</time>{item.outlet && <span>{item.outlet}</span>}</p>
+</PageHead>
+<div class="wrap page-body">
+  {item.image && <img class="article-cover" src={withBase(item.image)} alt="" />}
+  <div class="prose">
+    <p style="font-size:1.15rem">{pick(item, 'summary', lang)}</p>
+    {body && <Fragment set:html={markdown(body)} />}
+  </div>
+  {item.link && (
+    <p class="source-box">{s.source}{lang === 'fr' ? ' : ' : ': '}<a href={item.link} rel="noopener">{item.source || new URL(item.link).hostname}</a> — <a href={item.link} rel="noopener">{s.read_original} ↗</a></p>
+  )}
+</div>

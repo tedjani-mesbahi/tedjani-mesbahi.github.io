@@ -1,0 +1,26 @@
+---
+import Section from '../Section.astro';
+import { t, href, formatDate, withBase, type Lang } from '../../lib/i18n';
+import { getPosts } from '../../lib/content';
+
+interface Props { lang: Lang; title: string; alt?: boolean }
+const { lang, title, alt } = Astro.props;
+const s = t(lang);
+const posts = getPosts().slice(0, 3);
+---
+{posts.length > 0 && (
+  <Section id="blog" title={title} intro={s.page_blog_intro} moreHref={href(lang, 'blog/')} moreLabel={s.all_posts} alt={alt}>
+    <ul class="post-list">
+      {posts.map((p) => (
+        <li class="post-card">
+          <div>
+            <h3><a href={href(lang, `blog/${p.slug}/`)} hreflang={p.lang}>{p.title}</a></h3>
+            {p.summary && <p>{p.summary}</p>}
+            <p class="post-card__meta"><time class="num" datetime={p.date}>{formatDate(p.date, lang)}</time><span>{s.reading_time(p.minutes)}</span>{p.lang !== lang && <span class="tag tag--plain">{s.written_in[p.lang]}</span>}</p>
+          </div>
+          {p.cover && <img src={withBase(p.cover)} alt="" loading="lazy" width="144" height="108" />}
+        </li>
+      ))}
+    </ul>
+  </Section>
+)}

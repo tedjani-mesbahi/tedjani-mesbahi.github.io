@@ -1,0 +1,24 @@
+{
+  "name": "tedjani-mesbahi-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal academic website of Prof. Tedjani Mesbahi (INSA Strasbourg / ICube), built with Astro and edited with Sveltia CMS.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync:publications": "node scripts/sync-publications.mjs",
+    "setup": "node scripts/setup-repo.mjs"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/source-sans-3": "5.3.1",
+    "@fontsource-variable/source-serif-4": "5.3.1",
+    "astro": "7.3.8",
+    "marked": "18.1.0",
+    "yaml": "2.9.1"
+  }
+}

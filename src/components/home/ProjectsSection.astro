@@ -1,0 +1,31 @@
+---
+import Section from '../Section.astro';
+import { t, pick, type Lang } from '../../lib/i18n';
+import { getProjects } from '../../lib/content';
+
+interface Props { lang: Lang; title: string; alt?: boolean }
+const { lang, title, alt } = Astro.props;
+const s = t(lang);
+const projects = getProjects();
+---
+<Section id="projects" title={title} alt={alt}>
+  <div class="projects">
+    {projects.map((p) => (
+      <article class="project" aria-labelledby={`project-${p.slug}`}>
+        <h3 class="project__name" id={`project-${p.slug}`}>{p.name}</h3>
+        <div class="project__meta">
+          <span class="tag">{pick(p, 'role', lang)}</span>
+          {pick(p, 'period', lang) && <span class="tag tag--plain num">{pick(p, 'period', lang)}</span>}
+        </div>
+        <p class="project__title">{pick(p, 'title', lang)}</p>
+        <p class="project__summary">{pick(p, 'summary', lang)}</p>
+        <dl class="project__facts">
+          {pick(p, 'programme', lang) && <><dt>{s.programme}</dt><dd>{pick(p, 'programme', lang)}</dd></>}
+          {p.budget && <><dt>{s.budget}</dt><dd class="num">{p.budget}</dd></>}
+          {pick(p, 'partners', lang) && <><dt>{s.partners}</dt><dd>{pick(p, 'partners', lang)}</dd></>}
+        </dl>
+        {p.link && <a class="more" href={p.link} rel="noopener">{s.details}</a>}
+      </article>
+    ))}
+  </div>
+</Section>

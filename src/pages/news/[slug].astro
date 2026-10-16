@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import NewsArticle from '../../components/pages/NewsArticle.astro';
+import { getNews } from '../../lib/content';
+import { pick } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return getNews().map((item) => ({ params: { slug: item.slug }, props: { item } }));
+}
+const { item } = Astro.props;
+---
+<Base lang="en" path={`news/${item.slug}/`} title={pick(item, 'title', 'en')} description={pick(item, 'summary', 'en')}>
+  <NewsArticle lang="en" item={item} />
+</Base>

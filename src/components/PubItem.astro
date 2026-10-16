@@ -1,0 +1,31 @@
+---
+import { t, type Lang } from '../lib/i18n';
+import { authorsHtml } from '../lib/content';
+import { venueAbbr } from '../lib/venues';
+
+interface Props { pub: Record<string, any>; lang: Lang }
+const { pub, lang } = Astro.props;
+const s = t(lang);
+const typeLabel = s.types[pub.type] || s.types.other;
+const abbr = venueAbbr(pub, typeLabel);
+const isJournal = pub.type === 'journal';
+const doiUrl = pub.doi ? `https://doi.org/${pub.doi}` : '';
+const halUrl = pub.hal_id ? (pub.url || `https://hal.science/${pub.hal_id}`) : '';
+const otherUrl = !doiUrl && !halUrl ? pub.url : '';
+---
+<li class="pub" data-year={pub.year} data-type={pub.type} data-search={`${pub.title} ${pub.authors} ${pub.venue} ${pub.year}`.toLowerCase()}>
+  <span class:list={['badge', !isJournal && 'badge--conf']} title={pub.venue || typeLabel}>{abbr}</span>
+  <div>
+    <p class="pub__title">{pub.title}</p>
+    {pub.authors && <p class="pub__authors" set:html={authorsHtml(pub.authors)} />}
+    <p class="pub__venue">{[pub.venue, pub.details].filter(Boolean).join(', ')}{pub.venue ? ', ' : ''}<span class="num">{pub.year}</span></p>
+    {(doiUrl || halUrl || otherUrl || pub.pdf) && (
+      <p class="pub__links">
+        {doiUrl && <a class="mini-btn" href={doiUrl} rel="noopener">DOI</a>}
+        {halUrl && <a class="mini-btn" href={halUrl} rel="noopener">HAL</a>}
+        {pub.pdf && <a class="mini-btn" href={pub.pdf}>PDF</a>}
+        {otherUrl && <a class="mini-btn" href={otherUrl} rel="noopener">{s.link}</a>}
+      </p>
+    )}
+  </div>
+</li>

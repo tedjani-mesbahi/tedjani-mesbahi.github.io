@@ -1,0 +1,49 @@
+# Profil et réglages généraux — modifiable dans le CMS (Réglages > Profil)
+name: Tedjani Mesbahi
+short_name: T. Mesbahi
+title_fr: Professeur des universités en génie électrique
+title_en: Full Professor of Electrical Engineering
+tagline_fr: Batteries lithium-ion, sécurité des batteries et intelligence artificielle explicable pour leur gestion.
+tagline_en: Lithium-ion batteries, battery safety and explainable AI for battery management.
+affiliation_fr: INSA Strasbourg · Laboratoire ICube (CNRS UMR 7357), équipe EM3
+affiliation_en: INSA Strasbourg · ICube Laboratory (CNRS UMR 7357), EM3 team
+photo: ''
+cv: ''
+photo_alt_fr: Portrait de Tedjani Mesbahi
+photo_alt_en: Portrait of Tedjani Mesbahi
+email: tedjani.mesbahi@insa-strasbourg.fr
+phone: ''
+address_fr: |-
+  INSA Strasbourg
+  24 boulevard de la Victoire
+  67084 Strasbourg Cedex, France
+address_en: |-
+  INSA Strasbourg
+  24 boulevard de la Victoire
+  67084 Strasbourg Cedex, France
+office: 'INSA Strasbourg, bureau 106 L · ICube Illkirch, bureau 216 B'
+open_positions_fr: Candidatures spontanées bienvenues pour des thèses, post-doctorats et stages sur les batteries, leur gestion et leur sécurité. Envoyez un CV et une lettre courte par e-mail.
+open_positions_en: Unsolicited applications are welcome for PhD, postdoc and internship positions on batteries, battery management and safety. Send a CV and a short letter by email.
+metrics:
+  source: Google Scholar
+  as_of: '2026-10'
+  citations: 2045
+  h_index: 24
+  i10_index: 42
+links:
+  - label: Google Scholar
+    url: https://scholar.google.fr/citations?user=8LNdFkEAAAAJ
+  - label: ORCID
+    url: https://orcid.org/0000-0003-3808-6519
+  - label: HAL
+    url: https://hal.science/search/index/?q=authFullName_s%3A%22Tedjani+Mesbahi%22
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/dr-tedjani-mesbahi-78b4b1136/
+  - label: ResearchGate
+    url: https://www.researchgate.net/profile/Tedjani-Mesbahi-3
+  - label: Scopus
+    url: https://www.scopus.com/authid/detail.uri?authorId=54420534000
+  - label: dblp
+    url: https://dblp.org/pid/204/7809.html
+  - label: ICube
+    url: https://icube.unistra.fr/

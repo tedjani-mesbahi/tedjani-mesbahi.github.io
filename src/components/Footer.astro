@@ -1,0 +1,26 @@
+---
+import { t, href, withBase, formatDate, pick, type Lang } from '../lib/i18n';
+import { getSite } from '../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const site = getSite();
+const built = new Date().toISOString().slice(0, 10);
+const year = built.slice(0, 4);
+---
+<footer class="site-footer">
+  <div class="wrap site-footer__grid">
+    <div>
+      <p><strong>{site.name}</strong></p>
+      <p>{pick(site, 'affiliation', lang)}</p>
+      <p style="margin-top:0.5rem">© {year} {site.name} · {s.updated} {formatDate(built, lang)}</p>
+    </div>
+    <ul aria-label={s.footer_links}>
+      {site.email && <li><a href={`mailto:${site.email}`}>{s.email}</a></li>}
+      <li><a href={href(lang, 'publications/')}>{s.publications}</a></li>
+      <li><a href={`${href(lang)}#main`}>{s.back_to_top} ↑</a></li>
+      <li><a href={withBase('/admin/')} rel="nofollow">{s.edit}</a></li>
+    </ul>
+  </div>
+</footer>

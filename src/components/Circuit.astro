@@ -1,0 +1,58 @@
+---
+// Second-order Thevenin equivalent circuit of a lithium-ion cell:
+// OCV(SOC) source, ohmic resistance R0 and two RC pairs, terminal voltage Vt.
+// Drawn as a quiet background; dots of "current" travel round the loop.
+const zigzag = (x0: number, x1: number, y: number, amp = 12, peaks = 6) => {
+  const step = (x1 - x0) / (peaks * 2);
+  let d = `M${x0} ${y}`;
+  for (let i = 0; i < peaks * 2; i += 1) {
+    const x = x0 + step * (i + 0.5);
+    d += ` L${x.toFixed(1)} ${i % 2 === 0 ? y - amp : y + amp}`;
+  }
+  return `${d} L${x1} ${y}`;
+};
+const rc = (a: number, b: number) => {
+  const mid = (a + b) / 2;
+  return {
+    wires: `M${a} 110 V62 H${a + 25} M${b - 25} 62 H${b} V110 M${a} 110 V158 H${mid - 7} M${mid + 7} 158 H${b} V110`,
+    resistor: zigzag(a + 25, b - 25, 62),
+    plates: `M${mid - 7} 140 V176 M${mid + 7} 140 V176`,
+    mid,
+  };
+};
+const rc1 = rc(360, 500);
+const rc2 = rc(560, 700);
+---
+<div class="circuit" aria-hidden="true">
+  <svg viewBox="-70 0 970 400" preserveAspectRatio="xMidYMid meet">
+    <g class="wire">
+      <circle cx="110" cy="220" r="34" />
+      <path d="M110 186 V110 H200 M290 110 H360 M500 110 H560 M700 110 H813 M110 254 V330 H813" />
+      <path d={zigzag(200, 290, 110)} />
+      <path d={rc1.wires} />
+      <path d={rc1.resistor} />
+      <path d={rc1.plates} stroke-width="2.6" />
+      <path d={rc2.wires} />
+      <path d={rc2.resistor} />
+      <path d={rc2.plates} stroke-width="2.6" />
+      <circle cx="820" cy="110" r="7" />
+      <circle cx="820" cy="330" r="7" />
+      <path d="M110 198 v14 M103 205 h14 M103 237 h14" />
+      <path d="M858 300 V146 M851 158 l7 -12 7 12" />
+      <path d="M318 103 l12 7 -12 7" />
+    </g>
+    <circle class="solid" cx="360" cy="110" r="3.5" />
+    <circle class="solid" cx="500" cy="110" r="3.5" />
+    <circle class="solid" cx="560" cy="110" r="3.5" />
+    <circle class="solid" cx="700" cy="110" r="3.5" />
+    <path class="flow" d="M110 186 V110 H360 V62 H500 V110 H560 V62 H700 V110 H820 V330 H110 V254" />
+    <text x="62" y="226" text-anchor="end">OCV(SOC)</text>
+    <text x="245" y="88" text-anchor="middle">R₀</text>
+    <text x={rc1.mid} y="38" text-anchor="middle">R₁</text>
+    <text x={rc1.mid} y="204" text-anchor="middle">C₁</text>
+    <text x={rc2.mid} y="38" text-anchor="middle">R₂</text>
+    <text x={rc2.mid} y="204" text-anchor="middle">C₂</text>
+    <text x="874" y="228">Vₜ</text>
+    <text x="324" y="92" text-anchor="middle">i</text>
+  </svg>
+</div>

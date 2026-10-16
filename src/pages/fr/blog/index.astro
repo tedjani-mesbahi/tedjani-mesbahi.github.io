@@ -1,0 +1,8 @@
+---
+import Base from '../../../layouts/Base.astro';
+import BlogIndex from '../../../components/pages/BlogIndex.astro';
+import { t } from '../../../lib/i18n';
+---
+<Base lang="fr" path="blog/" title={t('fr').page_blog_title}>
+  <BlogIndex lang="fr" />
+</Base>

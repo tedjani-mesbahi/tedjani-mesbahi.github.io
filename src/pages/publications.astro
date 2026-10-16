@@ -1,0 +1,8 @@
+---
+import Base from '../layouts/Base.astro';
+import PublicationsPage from '../components/pages/PublicationsPage.astro';
+import { t } from '../lib/i18n';
+---
+<Base lang="en" path="publications/" title={t('en').page_pubs_title}>
+  <PublicationsPage lang="en" />
+</Base>

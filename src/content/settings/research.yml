@@ -1,0 +1,48 @@
+# Thèmes de recherche — modifiable dans le CMS (Pages > Recherche)
+intro_fr: Du comportement électrochimique d'une cellule jusqu'à l'algorithme qui la surveille dans un véhicule, et aux pompiers qui doivent intervenir quand elle s'emballe.
+intro_en: From the electrochemical behaviour of a single cell to the algorithm that watches it inside a vehicle, and to the firefighters who must act when it runs away.
+themes:
+  - code: MOD
+    icon: model
+    title_fr: Modélisation des batteries et jumeaux numériques
+    title_en: Battery modelling and digital twins
+    text_fr: Modèles électro-thermiques et de vieillissement des cellules lithium-ion, identification de paramètres à partir de cycles de conduite, modèles de batteries sodium-ion et de leur hystérésis.
+    text_en: Electro-thermal and ageing models of lithium-ion cells, parameter identification from driving cycles, models of sodium-ion batteries and their hysteresis.
+    keywords: [Electro-thermal models, Ageing, Na-ion, Parameter identification]
+  - code: HESS
+    icon: hybrid
+    title_fr: Stockage hybride et gestion de l'énergie
+    title_en: Hybrid storage and energy management
+    text_fr: Sources hybrides batterie / supercondensateur / pile à combustible, dimensionnement optimal et stratégies de gestion de l'énergie, validées en co-simulation et sur banc, pour véhicules électriques, chariots élévateurs et drones longue endurance.
+    text_en: Battery / supercapacitor / fuel-cell hybrid sources, optimal sizing and energy management strategies, validated in co-simulation and on test benches, for electric vehicles, forklifts and long-endurance drones.
+    keywords: [Supercapacitors, Optimal sizing, EMS, PIL / HIL, UAV]
+  - code: XAI
+    icon: ai
+    title_fr: IA explicable pour la gestion des batteries
+    title_en: Explainable AI for battery management
+    text_fr: Estimation de l'état de charge, de l'état de santé et de la durée de vie restante par apprentissage profond, réseaux de neurones à impulsions et réseaux informés par la physique, avec des explications compréhensibles (contrefactuels, ontologies, détection d'anomalies).
+    text_en: State of charge, state of health and remaining useful life estimation with deep learning, spiking neural networks and physics-informed networks, with explanations people can understand (counterfactuals, ontologies, anomaly detection).
+    keywords: [SOC, SOH, RUL, SNN, PINN, Ontologies]
+  - code: SAFE
+    icon: flame
+    title_fr: Sécurité des batteries et emballement thermique
+    title_en: Battery safety and thermal runaway
+    text_fr: Compréhension et prévention de l'emballement thermique, diagnostic thermique, risques liés aux fumées et effluents d'incendie, sensibilisation du public avec le SIS 67.
+    text_en: Understanding and preventing thermal runaway, thermal diagnosis, risks from fire smoke and effluents, public awareness work with the SIS 67 fire service.
+    keywords: [Thermal runaway, Fire effluents, Prevention, SIS 67]
+  - code: DRIVE
+    icon: motor
+    title_fr: Motorisation électrique sans terres rares
+    title_en: Rare-earth-free electric drives
+    text_fr: Commande des machines synchrones à réluctance pour la traction électrique, minimisation des ondulations de couple, commande prédictive.
+    text_en: Control of synchronous reluctance machines for electric traction, torque-ripple minimisation, predictive control.
+    keywords: [SynRM, Torque ripple, Predictive control]
+  - code: PASS
+    icon: passport
+    title_fr: Batteries durables et traçables
+    title_en: Sustainable and traceable batteries
+    text_fr: Passeport numérique des batteries, ontologie de la production de batteries, seconde vie, impact environnemental et coût total de possession.
+    text_en: Digital battery passport, battery production ontology, second life, environmental impact and total cost of ownership.
+    keywords: [Battery passport, Second life, TCO, LCA]
+facilities_fr: Plateforme de vieillissement de batteries de l'INSA Strasbourg (inaugurée le 1er juin 2026) — trois cycleurs, une enceinte climatique et une armoire de sécurité ; jusqu'à 28 cellules testées simultanément sur des profils réels (WLTP, Artemis).
+facilities_en: INSA Strasbourg battery ageing platform (opened on 1 June 2026) — three battery cyclers, a climatic chamber and a safety cabinet; up to 28 cells tested at once on real driving profiles (WLTP, Artemis).
