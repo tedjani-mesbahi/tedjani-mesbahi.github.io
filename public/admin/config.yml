@@ -6,7 +6,7 @@
 
 backend:
   name: github
-  repo: OWNER/REPO
+  repo: mtliba/tedjani-mesbahi
   branch: main
   auth_methods:
     - token
@@ -18,8 +18,8 @@ backend:
     deleteMedia: Suppression du fichier « {{path}} »
 media_folder: public/uploads
 public_folder: /uploads
-site_url: https://OWNER.github.io/REPO/
-display_url: https://OWNER.github.io/REPO/
+site_url: https://mtliba.github.io/tedjani-mesbahi/
+display_url: https://mtliba.github.io/tedjani-mesbahi/
 collections:
   - name: news
     label: Actualités
