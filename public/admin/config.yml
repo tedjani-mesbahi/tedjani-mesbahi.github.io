@@ -6,7 +6,7 @@
 
 backend:
   name: github
-  repo: TeD-Jani/TeD-Jani.github.io
+  repo: tedjani-mesbahi/tedjani-mesbahi.github.io
   branch: main
   auth_methods:
     - token
@@ -18,8 +18,8 @@ backend:
     deleteMedia: Suppression du fichier « {{path}} »
 media_folder: public/uploads
 public_folder: /uploads
-site_url: https://ted-jani.github.io/
-display_url: https://ted-jani.github.io/
+site_url: https://tedjani-mesbahi.github.io/
+display_url: https://tedjani-mesbahi.github.io/
 collections:
   - name: news
     label: Actualités
