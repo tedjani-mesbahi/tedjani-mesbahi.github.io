@@ -1,5 +1,3 @@
-# Ordre et visibilité des rubriques de la page d'accueil — modifiable dans le CMS (Réglages > Rubriques)
-# Faites glisser les rubriques pour changer l'ordre ; décochez « Afficher » pour masquer une rubrique.
 sections:
   - id: news
     visible: true
@@ -34,6 +32,6 @@ sections:
     title_fr: Parcours
     title_en: Career
   - id: teaching
-    visible: false
+    visible: true
     title_fr: Enseignement
     title_en: Teaching
