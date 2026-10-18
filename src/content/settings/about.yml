@@ -58,19 +58,43 @@ timeline:
   - period: 2012-2016
     title_fr: Doctorat en génie électrique
     title_en: PhD in Electrical Engineering
-    place: École Centrale de Lille · L2EP & ESTACA'Lab (Laval)
+    place: ESTACA'Lab Laval & École Centrale de Lille · L2EP
     detail_fr: |-
       Thèse : Influence des stratégies de gestion d’une source hybride de véhicule électrique sur son dimensionnement et sa durée de vie par intégration d’un modèle physique.
       Mission : répondre à une question de conception souvent traitée en deux temps, dimensionner le stockage puis gérer son énergie, en résolvant les deux ensemble grâce à des modèles qui reproduisent le vieillissement réel des batteries et des supercondensateurs.
     detail_en: |-
       Thesis: Influence of management strategies of a hybrid source of an electric vehicle on its sizing and lifespan, by integrating a physical model., defended on 25 March 2016.
       Mission: to answer a design question that was often treated in two separate steps, sizing the storage and then managing its energy, by solving both together with models that capture how batteries and supercapacitors actually age.
-  - period: 2011 – 2014
-    title_fr: Premiers travaux de recherche
-    title_en: Early research
-    place: École Militaire Polytechnique (Alger) · Université Badji Mokhtar (Annaba)
-    detail_fr: Conversion de l'énergie éolienne, filtrage actif et stockage par batteries lithium-ion.
-    detail_en: Wind energy conversion, active filtering and lithium-ion battery storage.
+  - period: 2011 – 2012
+    title_fr: Enseignant vacataire à l'UEHL
+    title_en: Part-time Lecturer at UEHL University
+    place: UEHL University
+    detail_fr: |-
+      Premier poste d’enseignement universitaire : génie électrique et électronique appliquée pour une promotion de 40 étudiants de niveau Bac+2.
+      Mission : enseigner les fondamentaux du génie électrique tout en achevant mes recherches de Magister.
+    detail_en: |-
+      First university teaching post: electrical engineering and applied electronics for a class of 40 students at Bac+2 level.
+      Mission: to teach the fundamentals of electrical engineering while completing my Master’s research.
+  - period: 2008-2011
+    title_fr: Chercheur (Magister)
+    title_en: Research Fellow (M.Sc. Magister)
+    place: Polytechnic Schools (EMP & ENP)
+    detail_fr: |-
+      Recherche de Magister sur la gestion des flux d’énergie dans une chaîne de conversion éolienne, dans un programme conjoint de deux écoles polytechniques algériennes.
+      Mémoire : Gestion des flux d’énergie dans une chaîne de conversion éolienne (
+    detail_en: |-
+      Master’s research on energy flow management in a wind conversion chain, under a joint programme of two Algerian polytechnic schools.
+      Thesis: Energy flow management in a wind conversion chain
+  - period: 2007-2008
+    title_fr: Stages ingénieur
+    title_en: Engineering Internships
+    place: ENTP et Schlumberger (SLB)
+    detail_fr: |-
+      Projet industriel de commande d’un top drive de forage pétrolier, avec les groupes ENTP et Schlumberger.
+      Projet de fin d’études : Amélioration de la stratégie de commande d’un Top Drive CANRIG 1050 E500, conduisant au diplôme d’ingénieur d’État en électromécanique (UBMA 2008).
+    detail_en: |-
+      Industrial project focused on the control system for an oil-drilling top drive, carried out in collaboration with ENTP and Schlumberger.
+      Final-year project: Improvement of the control strategy for a CANRIG 1050 E500 top drive, leading to a State Engineering degree in Electromechanics (UBMA 2008).
 distinctions:
   - year: '2024'
     title_fr: Senior Member de l'IEEE
