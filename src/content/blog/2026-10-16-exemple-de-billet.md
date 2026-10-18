@@ -36,7 +36,7 @@ In 2025, **Cyrine Soufi** was recognised by the _Mature your PhD_ challenge for 
 
 In 2026, **Slimane Arbaoui**, from ICube, was selected as a laureate of the _Mature your PhD_ challenge for a project focused on **using artificial intelligence to detect battery overheating risks at an earlier stage**. His work illustrates how AI can contribute to battery safety by identifying anomalies and helping anticipate potentially hazardous operating conditions.
 
-[![Mature your PhD](/uploads/Capture d'écran 2026-10-18 151533.png "Slimane Arbaoui")](https://www.conectus.fr/6-nouveaux-laureats-primes-au-challenge-mature-phd-2026)
+![Mature your PhD](/uploads/Capture d'écran 2026-10-18 151533.png "Slimane Arbaoui")
 
 These achievements reflect a broader research strategy: combining modelling, experimental testing, AI and digital technologies to address major challenges in battery performance, safety and sustainability.
 
