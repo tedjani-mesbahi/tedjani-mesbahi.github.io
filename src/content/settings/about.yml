@@ -19,26 +19,26 @@ timeline:
     title_fr: Professeur des universités en génie électrique
     title_en: Full Professor of Electrical Engineering
     place: INSA Strasbourg · ICube (CNRS UMR 7357)
-    detail_fr: Responsable de l'axe « intégration système » (équipe EM3) et coordinateur de l'équipe de recherche en génie électrique de l'INSA.
-    detail_en: Leads the "system integration" axis (EM3 team) and coordinates INSA's electrical engineering research team.
+    detail_fr: Faire progresser le stockage hybride, la gestion des batteries et la gestion d’énergie pilotée par l’IA pour les véhicules électriques et hybrides, former les ingénieurs de demain et relier le laboratoire à l’industrie et aux partenaires européens.
+    detail_en: Leading research and teaching on energy storage, intelligent battery management and AI for electric mobility, and turning results into European and industrial impact.
   - period: 2023 – 2026
     title_fr: Coordinateur du projet européen ENERGETIC
     title_en: Coordinator of the European project ENERGETIC
     place: Horizon Europe · 13 partenaires, 7 pays
-    detail_fr: Nouvelle génération de systèmes de gestion de batteries, connectés et explicables.
-    detail_en: Next-generation connected and explainable battery management systems.
+    detail_fr: 'Système de gestion de batterie de nouvelle génération fondé sur un jumeau numérique riche en données : rendre les batteries des véhicules électriques plus intelligentes, plus sûres et plus durables, en associant gestion avancée des batteries, jumeau numérique et IA au sein d’un consortium européen mêlant industrie et recherche.'
+    detail_en: 'Next-generation battery management system based on a data-rich digital twin: leading a €5M European project of 14 partners from 7 countries to develop a next-generation battery management system based on a data-rich digital twin.'
   - period: '2023'
-    title_fr: Habilitation à diriger des recherches (HDR)
+    title_fr: Habilitation à diriger des recherches (HdR)
     title_en: Habilitation (HDR)
-    place: INSA Strasbourg
+    place: University of Strasbourg
     detail_fr: « Performance Improvement of Electric Vehicle Using a Hybrid Sources Approach Based on Combined Optimal Sizing and Smart Energy Management Strategies », soutenue le 10 juillet 2023.
     detail_en: '"Performance Improvement of Electric Vehicle Using a Hybrid Sources Approach Based on Combined Optimal Sizing and Smart Energy Management Strategies", defended on 10 July 2023.'
-  - period: – 2025
-    title_fr: Maître de conférences
-    title_en: Associate Professor (Maître de conférences)
-    place: INSA Strasbourg · ICube, équipe SMH puis EM3
-    detail_fr: Enseignant-chercheur en génie électrique, stockage et conversion d'énergie.
-    detail_en: Teaching and research in electrical engineering, energy storage and conversion.
+  - period: 2017– 2025
+    title_fr: Maître de conférences McF
+    title_en: Associate Professor
+    place: INSA Strasbourg · ICube, équipe EM3 ex.SMH
+    detail_fr: Construire une équipe de recherche et un portefeuille de projets européens et industriels autour du stockage hybride et de la gestion intelligente des batteries, jusqu’à l’habilitation (HDR, 2023)
+    detail_en: Built a research team and a European and industrial project portfolio around hybrid energy storage and intelligent battery management, from the first student projects to the habilitation (HDR, 2023).
   - period: 2019 – 2022
     title_fr: Responsable scientifique du projet Interreg VEHICLE
     title_en: Scientific lead of the Interreg project VEHICLE
