@@ -18,13 +18,13 @@ draft: false
 
 As a researcher at INSA Strasbourg and ICube, I lead the System Integration research axis within the EM3 team and head the electrical engineering research team at INSA Strasbourg. My work focuses on smart batteries, hybrid energy storage, AI-based battery monitoring, digital twins and battery lifecycle management. A key objective is to connect scientific research with industrial needs through collaborative projects, technology transfer and the development of innovative solutions.
 
-![Slimane](/uploads/Capture%20d'écran%202026-10-18%20151533.png "Mature your PhD")
+[![Slimane](/uploads/Capture%20d'écran%202026-10-18%20151533.png "Mature your PhD")](https://youtu.be/pfPvuBlrcNQ)
 
 ## From hybrid energy storage to smart batteries
 
 Our technology-transfer activities build on several years of research into battery–supercapacitor hybridization, energy management and battery lifetime. The **OptHySource** project explored how hybrid energy storage systems could improve performance and reduce the demanding operating conditions imposed on batteries in electric vehicles. Supported by SATT Conectus, the project benefited from technology-maturation activities, including market assessment and the development of a demonstrator for industrial applications. Its innovation potential was also recognised through the national **i-PhD Innovation Award in 2022**, awarded to Théophile Paul, who developed the project during his doctoral research.
 
-[![Théophile Paul, lauréat du concours d'innovation i-PhD : vers une nouvelle génération de batteries hybrides pour véhicules électriques - RechercheRecherche](/uploads/20261018-152052.png "Théophile Paul")](https://www.youtube.com/watch?v=agOadD0R-dY)
+[![Théophile Paul, lauréat du concours d'innovation i-PhD : vers une nouvelle génération de batteries hybrides pour véhicules électriques - RechercheRecherche](/uploads/20261018-152052.png "Théophile Paul")](https://youtu.be/pfPvuBlrcNQ)
 
 Our collaborations have since expanded towards AI-based battery diagnostics, predictive monitoring and digital solutions for battery lifecycle management. These activities include technology-transfer programmes with SATT Conectus, a CIFRE partnership with EDF R&D, and an industrial chair with Eiffage. Together, these partnerships help bring research closer to industrial constraints and support the development and validation of solutions with practical applications.
 
