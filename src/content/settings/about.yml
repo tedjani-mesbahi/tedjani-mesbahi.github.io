@@ -18,7 +18,7 @@ timeline:
   - period: Aujourd'hui / Now
     title_fr: Professeur des universités en génie électrique
     title_en: Full Professor of Electrical Engineering
-    place: INSA Strasbourg · ICube (CNRS UMR 7357)
+    place: INSA Strasbourg · ICube (CNRS UMR 7357) , équipe EM3 ex.SMH
     detail_fr: Faire progresser le stockage hybride, la gestion des batteries et la gestion d’énergie pilotée par l’IA pour les véhicules électriques et hybrides, former les ingénieurs de demain et relier le laboratoire à l’industrie et aux partenaires européens.
     detail_en: Leading research and teaching on energy storage, intelligent battery management and AI for electric mobility, and turning results into European and industrial impact.
   - period: 2023 – 2026
@@ -36,7 +36,7 @@ timeline:
   - period: 2017– 2025
     title_fr: Maître de conférences McF
     title_en: Associate Professor
-    place: INSA Strasbourg · ICube, équipe EM3 ex.SMH
+    place: INSA Strasbourg · ICube (CNRS UMR 7357) , équipe EM3 ex.SMH
     detail_fr: Construire une équipe de recherche et un portefeuille de projets européens et industriels autour du stockage hybride et de la gestion intelligente des batteries, jusqu’à l’habilitation (HDR, 2023)
     detail_en: Built a research team and a European and industrial project portfolio around hybrid energy storage and intelligent battery management, from the first student projects to the habilitation (HDR, 2023).
   - period: 2019 – 2022
@@ -45,12 +45,16 @@ timeline:
     place: Interreg V Rhin supérieur · INSA Strasbourg, Hochschule Karlsruhe, Hochschule Trier
     detail_fr: Initiated and led a €1M European project with 3 main partners on a hybrid battery/supercapacitor storage system paired with a synchronous reluctance machine for electric vehicles. To improve the performance and lifetime of electric-vehicle powertrains by combining a hybrid energy storage system (battery and supercapacitor) with a rare-earth-free synchronous reluctance machine, within a cross-border industry-research consortium..
     detail_en: Un projet européen de 1 M€ avec 3 partenaires, sur un système de stockage hybride batterie/supercondensateur associé à une machine synchrone à réluctance pour véhicules électriques. Le but est d'améliorer les performances et la durée de vie des chaînes de traction électriques en associant un stockage hybride (batterie et supercondensateur) à une machine synchrone à réluctance sans terres rares, au sein d’un consortium transfrontalier mêlant industrie et recherche.
-  - period: 2016 – 2018
-    title_fr: Recherche au L2EP
-    title_en: Research at L2EP
-    place: Lille · Centrale Lille, Arts et Métiers, HEI
-    detail_fr: Gestion de l'énergie et dimensionnement de sources hybrides pour véhicules électriques.
-    detail_en: Energy management and sizing of hybrid sources for electric vehicles.
+  - period: 2015 – 2017
+    title_fr: Ingénieur de recherche (post-doctorat)
+    title_en: Research Engineer (Post-Doc)
+    place: Centrale Lille / L2EP & Valeo - ADEME
+    detail_fr: |-
+      Caractérisation, modélisation et dimensionnement de batteries Li-ion et de supercondensateurs pour un véhicule micro-hybride 48 V, en partenariat avec Valeo.
+      Mission : transformer des modèles de laboratoire de batteries et de supercondensateurs en outils d’ingénierie pour un véhicule hybride réel, dans le cadre du projet ESSENCYELE.
+    detail_en: |-
+      Characterised, modelled and sized Li-ion batteries and supercapacitors for a 48 V mild-hybrid vehicle, in partnership with Valeo.
+      Mission: to turn laboratory models of batteries and supercapacitors into engineering tools for a real hybrid vehicle, within the ESSENCYELE project.
   - period: '2016'
     title_fr: Doctorat en génie électrique
     title_en: PhD in Electrical Engineering
