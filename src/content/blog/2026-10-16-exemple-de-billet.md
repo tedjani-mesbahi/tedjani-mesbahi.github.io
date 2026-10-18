@@ -3,7 +3,7 @@ title: 'From Battery Research to Industrial Innovation: Bridging AI, Digital Twi
 date: 2026-10-16
 lang: en
 summary: 'Smarter, safer, and more sustainable batteries: at INSA Strasbourg and the ICube laboratory, research is being shaped in partnership with the industry. From the hybridization of batteries and supercapacitors—the focus of the OptHySource project, which won an award at the 2022 national i-PhD competition—to the digital battery passport initiative led by Cyrine Soufi in 2025, and the use of artificial intelligence to detect overheating risks early (a project by Slimane Arbaoui recognized in the 2026 "Mature your PhD" challenge), these efforts all share a single ambition: to translate scientific breakthroughs into concrete solutions. Supported by technology transfer mechanisms through SATT Conectus, a CIFRE partnership with EDF R&D, and an industrial chair with Eiffage, this dynamic bridges the gap between academic research and industrial requirements, helping to drive the evolution of battery technology and electric mobility.'
-cover: /uploads/Capture d'écran 2026-10-18 151533.png
+cover: /uploads/489e275d6722fa3e9397d5fb8ee1742350972a58.jpg
 tags:
   - Batteries intelligentes
   - intelligence artificielle (IA)
