@@ -46,4 +46,6 @@ At INSA Strasbourg and ICube, technology transfer is an integral part of our res
 
 Our objective is clear: **to develop smarter, safer and more sustainable battery systems by connecting scientific advances with real industrial needs.**
 
+![Nagham](/uploads/Image1-1-800x736.jpg "LAU-INSA")
+
 [https://www.conectus.fr/6-nouveaux-laureats-primes-au-challenge-mature-phd-2026](https://www.conectus.fr/6-nouveaux-laureats-primes-au-challenge-mature-phd-2026)
