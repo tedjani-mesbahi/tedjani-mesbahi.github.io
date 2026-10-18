@@ -2,9 +2,12 @@ name: ENERGETIC
 order: 1
 status: completed
 programme: Horizon Europe
+programme_en: ''
 role_fr: Coordinateur (avec Ahmed Samet)
 role_en: Coordinator (with Ahmed Samet)
 period: 2023 – 2026
+period_fr: ''
+period_en: ''
 budget: 5 M€
 partners_fr: 13 partenaires, 7 pays — coordination INSA Strasbourg
 partners_en: 13 partners, 7 countries — coordinated by INSA Strasbourg
@@ -12,5 +15,6 @@ title_fr: Systèmes de gestion de batteries de nouvelle génération fondés sur
 title_en: Next-generation battery management systems based on a data-rich digital twin
 summary_fr: Des batteries plus fiables, plus durables et plus sûres pour les transports électriques et le stockage stationnaire, grâce à l'IA explicable, aux modèles d'apprentissage hybrides et au calcul edge et cloud. Le projet a aussi doté l'INSA d'une plateforme de vieillissement de batteries.
 summary_en: More reliable, longer-lasting and safer batteries for electric transport and stationary storage, using explainable AI, hybrid learning models and edge and cloud computing. The project also gave INSA a battery ageing platform.
-link: https://cordis.europa.eu/project/id/101103667
+link: https://energeticproject.eu/
 grant: '101103667'
+hidden: false
