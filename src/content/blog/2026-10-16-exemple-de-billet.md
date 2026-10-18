@@ -18,9 +18,9 @@ draft: false
 
 As a researcher at INSA Strasbourg and ICube, I lead the System Integration research axis within the EM3 team and head the electrical engineering research team at INSA Strasbourg. My work focuses on smart batteries, hybrid energy storage, AI-based battery monitoring, digital twins and battery lifecycle management. A key objective is to connect scientific research with industrial needs through collaborative projects, technology transfer and the development of innovative solutions.
 
-![Slimane Arbaoui](/uploads/Capture d'écran 2026-10-18 151533.png "Mature your PhD")
+## From hybrid![Slimane](/uploads/Capture d'écran 2026-10-18 151533.png)
 
-## From hybrid energy storage to smart batteries
+ energy storage to smart batteries
 
 Our technology-transfer activities build on several years of research into battery–supercapacitor hybridization, energy management and battery lifetime. The **OptHySource** project explored how hybrid energy storage systems could improve performance and reduce the demanding operating conditions imposed on batteries in electric vehicles. Supported by SATT Conectus, the project benefited from technology-maturation activities, including market assessment and the development of a demonstrator for industrial applications. Its innovation potential was also recognised through the national **i-PhD Innovation Award in 2022**, awarded to Théophile Paul, who developed the project during his doctoral research.
 
