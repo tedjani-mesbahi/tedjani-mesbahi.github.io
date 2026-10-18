@@ -1,16 +1,19 @@
-# Parcours — modifiable dans le CMS (Pages > Parcours)
 bio_fr: |-
-  Tedjani Mesbahi est professeur des universités en génie électrique à l'INSA Strasbourg et chercheur au laboratoire ICube (CNRS UMR 7357), où il anime l'axe « intégration système » de l'équipe EM3 et coordonne l'équipe de recherche en génie électrique de l'INSA.
+  Tedjani Mesbahi est Professeur des Universités en génie électrique à l’INSA Strasbourg et chercheur au laboratoire ICube (CNRS UMR 7357), il anime l’axe « Intégration système » de l’équipe EM3 et dirige l’équipe de recherche en génie électrique de l’INSA. Senior Member de l’IEEE, il est docteur de l’École Centrale de Lille (2016) et titulaire d’une Habilitation à Diriger des Recherches de l’Université de Strasbourg (2023).
 
-  Ses travaux portent sur les systèmes de stockage d'énergie pour la mobilité électrique : modélisation multiphysique des batteries lithium-ion et sodium-ion, sources hybrides batterie/supercondensateur, stratégies de gestion de l'énergie, et intelligence artificielle explicable pour estimer l'état de charge, l'état de santé et la durée de vie des batteries. Il s'intéresse aussi à la sécurité des batteries et à l'emballement thermique, en lien étroit avec les sapeurs-pompiers du Bas-Rhin (SIS 67).
+  Ses recherches portent sur les systèmes de stockage hybrides (batteries, supercondensateurs, piles à combustible), la gestion intelligente des batteries et la gestion d’énergie pilotée par l’IA pour les véhicules électriques et hybrides. Il coordonne ENERGETIC, projet Horizon Europe de 5 M€ réunissant 14 partenaires de 7 pays, et a co-fondé la BMS Alliance Europe.
 
-  Il coordonne le projet européen ENERGETIC (Horizon Europe, 5 M€), après avoir dirigé scientifiquement le projet Interreg VEHICLE (2019–2022). Il a soutenu son habilitation à diriger des recherches en 2023 et a été élevé au grade de Senior Member de l'IEEE en 2024.
+  Pour lui, la recherche n’a de sens que si elle atteint l’industrie : programmes de transfert avec la SATT Conectus, thèse CIFRE avec EDF R&D, chaire industrielle avec Eiffage. Sa technologie OptHySource a reçu le Prix national d’innovation i-PhD en 2022.
+
+  Track Chair et Session Chair à l’IEEE VPPC, Associate Editor de _Energy and AI_ (Elsevier), il a encadré 13 doctorants et figure parmi les 2 % de chercheurs les plus cités au monde en énergie (Stanford/Elsevier).
 bio_en: |-
-  Tedjani Mesbahi is a Full Professor of Electrical Engineering at INSA Strasbourg and a researcher at the ICube Laboratory (CNRS UMR 7357), where he leads the "system integration" research axis of the EM3 team and coordinates INSA's electrical engineering research team.
+  Tedjani Mesbahi a Full Professor of Electrical Engineering at INSA Strasbourg and researcher at the ICube laboratory (CNRS UMR 7357), he leads the “System Integration” axis of the EM3 team and heads INSA’s electrical engineering research team. A Senior Member of IEEE, he holds a Ph.D. from École Centrale de Lille (2016) and the Habilitation to Supervise Research from the University of Strasbourg (2023).
 
-  His work focuses on energy storage for electric mobility: multiphysics modelling of lithium-ion and sodium-ion batteries, battery/supercapacitor hybrid sources, energy management strategies, and explainable artificial intelligence to estimate the state of charge, state of health and lifetime of batteries. He also works on battery safety and thermal runaway, in close partnership with the Bas-Rhin fire and rescue service (SIS 67).
+  His research covers hybrid energy storage (batteries, supercapacitors, fuel cells), intelligent battery management and AI-driven energy management for electric and hybrid vehicles. He coordinates ENERGETIC, a €5M Horizon Europe project with 14 partners from 7 countries, and co-founded the BMS Alliance Europe.
 
-  He coordinates the European project ENERGETIC (Horizon Europe, €5M), after serving as scientific lead of the Interreg project VEHICLE (2019–2022). He received his habilitation (HDR) in 2023 and was elevated to IEEE Senior Member in 2024.
+  For him, research only matters if it reaches industry: technology-transfer programmes with SATT Conectus, a CIFRE partnership with EDF R&D, an industrial chair with Eiffage. His OptHySource technology received the national i-PhD Innovation Award in 2022.
+
+  Track Chair and Session Chair at IEEE VPPC and Associate Editor of _Energy and AI_ (Elsevier), he has supervised 13 Ph.D. students and is ranked among the top 2% of the world’s most-cited scientists in energy (Stanford/Elsevier).
 timeline:
   - period: Aujourd'hui / Now
     title_fr: Professeur des universités en génie électrique
@@ -30,7 +33,7 @@ timeline:
     place: INSA Strasbourg
     detail_fr: « Performance Improvement of Electric Vehicle Using a Hybrid Sources Approach Based on Combined Optimal Sizing and Smart Energy Management Strategies », soutenue le 10 juillet 2023.
     detail_en: '"Performance Improvement of Electric Vehicle Using a Hybrid Sources Approach Based on Combined Optimal Sizing and Smart Energy Management Strategies", defended on 10 July 2023.'
-  - period: '– 2025'
+  - period: – 2025
     title_fr: Maître de conférences
     title_en: Associate Professor (Maître de conférences)
     place: INSA Strasbourg · ICube, équipe SMH puis EM3
