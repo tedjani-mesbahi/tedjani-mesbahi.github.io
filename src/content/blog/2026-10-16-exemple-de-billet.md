@@ -11,7 +11,7 @@ tags:
   - détection précoce des anomalies
   - passeport numérique des batteries
   - innovation industrielle
-draft: true
+draft: false
 ---
 
 **Research only matters if it reaches industry.** At INSA Strasbourg and the ICube laboratory (CNRS UMR 7357), our research activities aim to turn advances in battery technologies, artificial intelligence and energy management into practical solutions for industry and society.
