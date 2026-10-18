@@ -30,6 +30,8 @@ The achievements of our doctoral researchers illustrate this approach.
 
 In 2025, **Cyrine Soufi** was recognised by the _Mature your PhD_ challenge for work related to the **digital battery passport**. This research addresses the need for reliable information on battery performance, environmental impact and lifecycle management, supporting more transparent and sustainable battery value chains.
 
+[![Cyrine Soufi remporte le prix Pépite Etena au Challenge Mature Your PhD 2025](/uploads/CyrineSoufiMPhD.jpg "Cyrine Soufi")](https://icube.unistra.fr/actualites/cyrine-soufi-remporte-le-prix-pepite-etena-au-challenge-mature-your-phd-2025/)
+
 In 2026, **Slimane Arbaoui**, from ICube, was selected as a laureate of the _Mature your PhD_ challenge for a project focused on **using artificial intelligence to detect battery overheating risks at an earlier stage**. His work illustrates how AI can contribute to battery safety by identifying anomalies and helping anticipate potentially hazardous operating conditions.
 
 ![Mature your PhD](/uploads/Capture d'écran 2026-10-18 151533.png "Slimane Arbaoui")
