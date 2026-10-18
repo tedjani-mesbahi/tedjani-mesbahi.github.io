@@ -22,6 +22,8 @@ As a researcher at INSA Strasbourg and ICube, I lead the System Integration rese
 
 Our technology-transfer activities build on several years of research into battery–supercapacitor hybridization, energy management and battery lifetime. The **OptHySource** project explored how hybrid energy storage systems could improve performance and reduce the demanding operating conditions imposed on batteries in electric vehicles. Supported by SATT Conectus, the project benefited from technology-maturation activities, including market assessment and the development of a demonstrator for industrial applications. Its innovation potential was also recognised through the national **i-PhD Innovation Award in 2022**, awarded to Théophile Paul, who developed the project during his doctoral research.
 
+[![Théophile Paul, lauréat du concours d'innovation i-PhD : vers une nouvelle génération de batteries hybrides pour véhicules électriques - RechercheRecherche](/uploads/20261018-152052.png "Théophile Paul")](https://www.youtube.com/watch?v=agOadD0R-dY)
+
 Our collaborations have since expanded towards AI-based battery diagnostics, predictive monitoring and digital solutions for battery lifecycle management. These activities include technology-transfer programmes with SATT Conectus, a CIFRE partnership with EDF R&D, and an industrial chair with Eiffage. Together, these partnerships help bring research closer to industrial constraints and support the development and validation of solutions with practical applications.
 
 ## Recognising the next generation of battery innovations
@@ -34,7 +36,7 @@ In 2025, **Cyrine Soufi** was recognised by the _Mature your PhD_ challenge for 
 
 In 2026, **Slimane Arbaoui**, from ICube, was selected as a laureate of the _Mature your PhD_ challenge for a project focused on **using artificial intelligence to detect battery overheating risks at an earlier stage**. His work illustrates how AI can contribute to battery safety by identifying anomalies and helping anticipate potentially hazardous operating conditions.
 
-![Mature your PhD](/uploads/Capture d'écran 2026-10-18 151533.png "Slimane Arbaoui")
+[![Mature your PhD](/uploads/Capture d'écran 2026-10-18 151533.png "Slimane Arbaoui")](https://www.conectus.fr/6-nouveaux-laureats-primes-au-challenge-mature-phd-2026)
 
 These achievements reflect a broader research strategy: combining modelling, experimental testing, AI and digital technologies to address major challenges in battery performance, safety and sustainability.
 
