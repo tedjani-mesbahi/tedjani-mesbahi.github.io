@@ -37,8 +37,12 @@ timeline:
     title_fr: Maître de conférences McF
     title_en: Associate Professor
     place: INSA Strasbourg · ICube (CNRS UMR 7357) , EM3 ex.SMH team
-    detail_fr: Construire une équipe de recherche et un portefeuille de projets européens et industriels autour du stockage hybride et de la gestion intelligente des batteries, jusqu’à l’habilitation (HDR, 2023)
-    detail_en: Built a research team and a European and industrial project portfolio around hybrid energy storage and intelligent battery management, from the first student projects to the habilitation (HDR, 2023).
+    detail_fr: |-
+      Construire une équipe de recherche et un portefeuille de projets européens et industriels autour du stockage hybride et de la gestion intelligente des batteries, jusqu’à l’habilitation (HDR, 2023).
+      Mission : installer une ligne de recherche sur le stockage hybride et la gestion de batterie pilotée par l’IA, former des ingénieurs à la mobilité électrique et à l’Industrie 4.0, et relier le laboratoire à l’industrie et aux partenaires européens.
+    detail_en: |-
+      Built a research team and a European and industrial project portfolio around hybrid energy storage and intelligent battery management, from the first student projects to the habilitation (HDR, 2023).
+      Mission: to establish a research line on hybrid energy storage and AI-driven battery management, to train engineers in electric mobility and Industry 4.0, and to connect the laboratory with industry and European partners.
   - period: 2019 – 2022
     title_fr: Responsable scientifique du projet Interreg VEHICLE
     title_en: Scientific lead of the Interreg project VEHICLE
