@@ -29,7 +29,7 @@ timeline:
     detail_en: 'Next-generation battery management system based on a data-rich digital twin: leading a €5M European project of 14 partners from 7 countries to develop a next-generation battery management system based on a data-rich digital twin.'
   - period: '2023'
     title_fr: Habilitation à diriger des recherches (HdR)
-    title_en: Habilitation (HDR)
+    title_en: Agreement for research management (HdR)
     place: University of Strasbourg
     detail_fr: « Performance Improvement of Electric Vehicle Using a Hybrid Sources Approach Based on Combined Optimal Sizing and Smart Energy Management Strategies », soutenue le 10 juillet 2023.
     detail_en: '"Performance Improvement of Electric Vehicle Using a Hybrid Sources Approach Based on Combined Optimal Sizing and Smart Energy Management Strategies", defended on 10 July 2023.'
@@ -55,12 +55,16 @@ timeline:
     detail_en: |-
       Characterised, modelled and sized Li-ion batteries and supercapacitors for a 48 V mild-hybrid vehicle, in partnership with Valeo.
       Mission: to turn laboratory models of batteries and supercapacitors into engineering tools for a real hybrid vehicle, within the ESSENCYELE project.
-  - period: '2016'
+  - period: 2012-2016
     title_fr: Doctorat en génie électrique
     title_en: PhD in Electrical Engineering
     place: École Centrale de Lille · L2EP & ESTACA'Lab (Laval)
-    detail_fr: « Influence des stratégies de gestion d'une source hybride de véhicule électrique sur son dimensionnement et sa durée de vie par intégration d'un modèle multi-physique », soutenue le 25 mars 2016.
-    detail_en: '"Influence of energy management strategies of an electric-vehicle hybrid source on its sizing and lifetime through a multiphysics model", defended on 25 March 2016.'
+    detail_fr: |-
+      Thèse : Influence des stratégies de gestion d’une source hybride de véhicule électrique sur son dimensionnement et sa durée de vie par intégration d’un modèle physique.
+      Mission : répondre à une question de conception souvent traitée en deux temps, dimensionner le stockage puis gérer son énergie, en résolvant les deux ensemble grâce à des modèles qui reproduisent le vieillissement réel des batteries et des supercondensateurs.
+    detail_en: |-
+      Thesis: Influence of management strategies of a hybrid source of an electric vehicle on its sizing and lifespan, by integrating a physical model., defended on 25 March 2016.
+      Mission: to answer a design question that was often treated in two separate steps, sizing the storage and then managing its energy, by solving both together with models that capture how batteries and supercapacitors actually age.
   - period: 2011 – 2014
     title_fr: Premiers travaux de recherche
     title_en: Early research
