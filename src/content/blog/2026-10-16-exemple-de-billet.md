@@ -18,7 +18,7 @@ draft: false
 
 As a researcher at INSA Strasbourg and ICube, I lead the System Integration research axis within the EM3 team and head the electrical engineering research team at INSA Strasbourg. My work focuses on smart batteries, hybrid energy storage, AI-based battery monitoring, digital twins and battery lifecycle management. A key objective is to connect scientific research with industrial needs through collaborative projects, technology transfer and the development of innovative solutions.
 
-[![Slimane](/uploads/Capture%20d'écran%202026-10-18%20151533.png "Mature your PhD")](https://youtu.be/pfPvuBlrcNQ)
+![Slimane](/uploads/Capture%20d'écran%202026-10-18%20151533.png "Mature your PhD")
 
 ## From hybrid energy storage to smart batteries
 
