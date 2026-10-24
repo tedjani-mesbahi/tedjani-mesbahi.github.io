@@ -106,9 +106,12 @@ distinctions:
   - year: '2024'
     title_fr: Finaliste du Pollutec Innovation Challenge (projet OptHYSource)
     title_en: Pollutec Innovation Challenge finalist (OptHYSource project)
-  - year: '2023'
+  - year: 2023-2026
     title_fr: Top 2% of world scientists in energy (Stanford University / Elsevier ranking)
     title_en: Parmi les 2 % de scientifiques les plus influents au monde dans le domaine de l’énergie (classement de l’université Stanford / Elsevier)
+  - year: '2024'
+    title_fr: IEEE VTS member
+    title_en: IEEE VTS member
 service_fr:
   - Président de session, IEEE Vehicle Power and Propulsion Conference (VPPC 2025, Hangzhou)
   - 'Membre de jurys de thèse (rapporteur ou examinateur) : Université Grenoble Alpes, Lyon 1, Centrale Lille, Université de Lorraine, Université Bourgogne-Franche-Comté'
