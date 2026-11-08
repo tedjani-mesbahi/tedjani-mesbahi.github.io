@@ -91,7 +91,7 @@ members:
     link: https://theses.fr/2023STRAD069
   - name: Théophile Paul
     role: phd
-    status: alumni
+    status: current
     topic: Dimensionnement et gestion intelligente d'un système de stockage d'énergie hybride pour un chariot élévateur dans l'industrie 4.0
     topic_en: Sizing and intelligent management of a hybrid energy storage system for a forklift in Industry 4.0
     with: Wilfried Uhring
@@ -143,7 +143,7 @@ members:
     link: https://aws-a.medias-ccifi.org/fileadmin/esp-madrid/user_upload/CONECTUS_-_Teaser_SBOVA_V2.pdf
   - name: Yakoub Saadi
     role: engineer
-    status: alumni
+    status: current
     topic: Ingénieur de recherche — mobilité électrique
     topic_en: Research engineer — E-mobility researcher
     with: ''
@@ -157,9 +157,9 @@ members:
     with: ''
     years: ''
     link: https://www.youtube.com/watch?v=PEnd9bh0VnY
-  - name: T. Paul
+  - name: Théophile Paul
     role: postdoc
-    status: alumni
+    status: current
     topic: 'Postdoctoral researcher — "OptHySource ": projet technologique innovant qui associe des batteries lithium-ion et des supercondensateurs au sein d''un système de stockage d''énergie hybride (ESS)'
     topic_en: 'Postdoctoral researcher — "OptHySource": an innovative technological project that combines lithium-ion batteries and supercapacitors within a hybrid energy storage system (ESS)'
     with: ''
@@ -177,7 +177,7 @@ members:
     link: ''
   - name: Franco Giustozzi
     role: postdoc
-    status: alumni
+    status: current
     topic: Postdoctoral researcher — Projet XAI-BATMAN
     topic_en: Postdoctoral researcher — XAI-BATMAN Project
     with: ''
