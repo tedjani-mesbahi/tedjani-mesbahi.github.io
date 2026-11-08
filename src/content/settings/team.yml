@@ -143,7 +143,7 @@ members:
     link: https://aws-a.medias-ccifi.org/fileadmin/esp-madrid/user_upload/CONECTUS_-_Teaser_SBOVA_V2.pdf
   - name: Yakoub Saadi
     role: engineer
-    status: current
+    status: alumni
     topic: Ingénieur de recherche — mobilité électrique
     topic_en: Research engineer — E-mobility researcher
     with: ''
@@ -157,3 +157,11 @@ members:
     with: ''
     years: ''
     link: https://www.youtube.com/watch?v=PEnd9bh0VnY
+  - name: Théophile Paul
+    role: postdoc
+    status: alumni
+    topic: 'Postdoctoral researcher — "OptHySource ": projet technologique innovant qui associe des batteries lithium-ion et des supercondensateurs au sein d''un système de stockage d''énergie hybride (ESS)'
+    topic_en: 'Postdoctoral researcher — "OptHySource": an innovative technological project that combines lithium-ion batteries and supercapacitors within a hybrid energy storage system (ESS)'
+    with: ''
+    years: '2026'
+    link: https://recherche.insa-strasbourg.fr/theophile-paul-laureat-du-concours-dinnovation-i-phd-vers-une-nouvelle-generation-de-batteries-hybrides-pour-vehicules-electriques/
