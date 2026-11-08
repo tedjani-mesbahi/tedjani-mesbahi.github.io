@@ -53,8 +53,8 @@ members:
     role: phd
     status: alumni
     topic: Prédiction explicable du vieillissement des batteries lithium-ion pour une prolongation intelligente de leur durée de vie dans le domaine de la mobilité électrique
-    topic_en: ''
-    with: Romuald Boné
+    topic_en: Explainable prediction of lithium-ion battery aging for the intelligent extension of their service life in the field of electric mobility
+    with: Romuald Boné, Ahmed Samet
     years: '2025'
     link: https://theses.fr/2025STRAD029
   - name: Thomas Pavot
@@ -85,7 +85,7 @@ members:
     role: phd
     status: alumni
     topic: Modélisation multi-physique et gestion intelligente de l'énergie d'un système de stockage hybride batterie Li-ion / supercondensateur pour véhicules électriques
-    topic_en: ''
+    topic_en: Multiphysics modeling and intelligent energy management of a hybrid Li-ion battery/supercapacitor storage system for electric vehicles
     with: Christophe Lallement
     years: '2023'
     link: https://theses.fr/2023STRAD069
@@ -93,7 +93,7 @@ members:
     role: phd
     status: alumni
     topic: Dimensionnement et gestion intelligente d'un système de stockage d'énergie hybride pour un chariot élévateur dans l'industrie 4.0
-    topic_en: ''
+    topic_en: Sizing and intelligent management of a hybrid energy storage system for a forklift in Industry 4.0
     with: Wilfried Uhring
     years: '2022'
     link: https://recherche.insa-strasbourg.fr/soutenance-de-these-de-theophile-paul-le-01-07-equipe-systemes-et-microsystemes-heterogenes-icube/
@@ -104,7 +104,7 @@ members:
     topic_en: Postdoctoral researcher — hybrid storage and the ENERGETIC project
     with: ''
     years: ''
-    link: ''
+    link: https://www.linkedin.com/in/lakhdar-mamouri/
   - name: Thomas Pavot
     role: engineer
     status: current
@@ -112,7 +112,7 @@ members:
     topic_en: Research engineer — battery ageing platform
     with: ''
     years: ''
-    link: ''
+    link: https://www.linkedin.com/in/thomas-pavot-0b2baa1a1/
   - name: Hazem Adel Musallam
     role: phd
     status: current
