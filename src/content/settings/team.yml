@@ -165,3 +165,13 @@ members:
     with: ''
     years: '2026'
     link: https://recherche.insa-strasbourg.fr/theophile-paul-laureat-du-concours-dinnovation-i-phd-vers-une-nouvelle-generation-de-batteries-hybrides-pour-vehicules-electriques/
+  - name: Hayfae Taoud Elhassani
+    role: phd
+    status: current
+    topic: |-
+      Modélisation électrothermique réduite et commande prédictive robuste
+      de la gestion thermique de batteries lithium-ion
+    topic_en: Reduced-order electrothermal modeling and robust predictive control for the thermal management of lithium-ion batteries
+    with: Christophe Lallement
+    years: ''
+    link: ''
