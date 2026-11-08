@@ -120,4 +120,16 @@ members:
     topic_en: Multimodal Machine Learning for Battery Management Systems
     with: Djamila AOUADA,  Enjie GHORBE
     years: ''
-    link: https://www.linkedin.com/in/hazem-adel-musallam/
+    link: https://scholar.google.com/citations?user=REeRjgIAAAAJ&hl=en
+  - name: Houssam Eddine Ghadbane
+    role: phd
+    status: alumni
+    topic: |-
+      Gestion d’énergie dans un véhicule électrique à base
+      d’une machine synchrone à réluctance variable
+    topic_en: |-
+      Energy management in an electric vehicle based on a
+      variable-reluctance synchronous machine
+    with: Azeddine HOUARI , BARKAT Said
+    years: ''
+    link: https://scholar.google.com/citations?user=HQjVGNsAAAAJ&hl=fr
