@@ -133,14 +133,14 @@ members:
     with: Azeddine HOUARI , BARKAT Said
     years: '2025'
     link: https://scholar.google.com/citations?user=HQjVGNsAAAAJ&hl=fr
-  - name: Paul Théophile
+  - name: Jean Kuchly
     role: postdoc
-    status: alumni
-    topic: 'Postdoctoral researcher — "OptHySource ": projet technologique innovant qui associe des batteries lithium-ion et des supercondensateurs au sein d''un système de stockage d''énergie hybride (ESS)'
-    topic_en: 'OptHySource: an innovative technological project that combines lithium-ion batteries and supercapacitors within a hybrid energy storage system (ESS)'
+    status: current
+    topic: 'Chercheur postdoctoral — « SBOVA » : un projet technologique innovant pour l’optimisation intelligente des batteries dans les véhicules, basé sur l’IA'
+    topic_en: 'Postdoctoral researcher — "SBOVA": an innovative technological project for Smart Battery Optimization in Vehicles using AI'
     with: ''
-    years: '2026'
-    link: https://cdn-assets.inwink.com/07f316a9-1e3e-4be1-afec-8c517dbac0cc/ac007565-dd40-4d38-8105-47424a418e05
+    years: ''
+    link: https://aws-a.medias-ccifi.org/fileadmin/esp-madrid/user_upload/CONECTUS_-_Teaser_SBOVA_V2.pdf
   - name: Yakoub Saadi
     role: engineer
     status: current
