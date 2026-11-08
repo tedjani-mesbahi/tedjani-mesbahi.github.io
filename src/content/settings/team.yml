@@ -131,13 +131,21 @@ members:
       Energy management in an electric vehicle based on a
       variable-reluctance synchronous machine
     with: Azeddine HOUARI , BARKAT Said
-    years: ''
+    years: '2025'
     link: https://scholar.google.com/citations?user=HQjVGNsAAAAJ&hl=fr
   - name: Théophile Paul
     role: postdoc
     status: alumni
-    topic: "OptHySource : projet technologique innovant qui associe des batteries lithium-ion et des supercondensateurs au sein d'un système de stockage d'énergie hybride (ESS)"
+    topic: 'Postdoctoral researcher — "OptHySource ": projet technologique innovant qui associe des batteries lithium-ion et des supercondensateurs au sein d''un système de stockage d''énergie hybride (ESS)'
     topic_en: 'OptHySource: an innovative technological project that combines lithium-ion batteries and supercapacitors within a hybrid energy storage system (ESS)'
     with: ''
     years: '2026'
     link: https://cdn-assets.inwink.com/07f316a9-1e3e-4be1-afec-8c517dbac0cc/ac007565-dd40-4d38-8105-47424a418e05
+  - name: Yakoub Saadi
+    role: engineer
+    status: current
+    topic: Ingénieur de recherche — mobilité électrique
+    topic_en: Research engineer — E-mobility researcher
+    with: ''
+    years: '2024'
+    link: https://www.linkedin.com/in/yakoub-saadi-4080248b/
