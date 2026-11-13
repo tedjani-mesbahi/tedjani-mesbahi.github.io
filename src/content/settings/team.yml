@@ -91,7 +91,7 @@ members:
     link: https://theses.fr/2023STRAD069
   - name: Théophile Paul
     role: phd
-    status: current
+    status: alumni
     topic: Dimensionnement et gestion intelligente d'un système de stockage d'énergie hybride pour un chariot élévateur dans l'industrie 4.0
     topic_en: Sizing and intelligent management of a hybrid energy storage system for a forklift in Industry 4.0
     with: Wilfried Uhring
@@ -105,14 +105,6 @@ members:
     with: ''
     years: ''
     link: https://www.linkedin.com/in/lakhdar-mamouri/
-  - name: Thomas Pavot
-    role: engineer
-    status: current
-    topic: Ingénieur d'étude — plateforme de vieillissement de batteries
-    topic_en: Research engineer — battery ageing platform
-    with: ''
-    years: ''
-    link: https://www.linkedin.com/in/thomas-pavot-0b2baa1a1/
   - name: Hazem Adel Musallam
     role: phd
     status: current
@@ -121,6 +113,14 @@ members:
     with: Djamila AOUADA,  Enjie GHORBE
     years: ''
     link: https://scholar.google.com/citations?user=REeRjgIAAAAJ&hl=en
+  - name: Thomas Pavot
+    role: engineer
+    status: current
+    topic: Ingénieur d'étude — plateforme de vieillissement de batteries
+    topic_en: Research engineer — battery ageing platform
+    with: ''
+    years: ''
+    link: https://www.linkedin.com/in/thomas-pavot-0b2baa1a1/
   - name: Houssam Eddine Ghadbane
     role: phd
     status: alumni
@@ -183,3 +183,11 @@ members:
     with: ''
     years: '2023'
     link: https://www.linkedin.com/in/franco-giustozzi-3a1185138/
+  - name: Oussama Mahdjour
+    role: phd
+    status: current
+    topic: Raisonnement génératif et techniques d'IA explicables pour la durabilité et la sécurité énergétiques de nouvelle génération
+    topic_en: Generative reasoning and explainable AI techniques for next-generation energy sustainability and security
+    with: Romuald Boné, Ahmed Samet
+    years: ''
+    link: https://theses.fr/s424407
