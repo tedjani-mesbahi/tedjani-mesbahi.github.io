@@ -174,15 +174,7 @@ members:
     topic_en: Reduced-order electrothermal modeling and robust predictive control for the thermal management of lithium-ion batteries
     with: Christophe Lallement
     years: ''
-    link: ''
-  - name: Franco Giustozzi
-    role: postdoc
-    status: current
-    topic: Postdoctoral researcher — Projet XAI-BATMAN
-    topic_en: Postdoctoral researcher — XAI-BATMAN Project
-    with: ''
-    years: '2023'
-    link: https://www.linkedin.com/in/franco-giustozzi-3a1185138/
+    link: https://www.linkedin.com/in/hayfae-taoud-el-hassani-846045256/
   - name: Oussama Mahdjour
     role: phd
     status: current
@@ -191,3 +183,11 @@ members:
     with: Romuald Boné, Ahmed Samet
     years: ''
     link: https://theses.fr/s424407
+  - name: Franco Giustozzi
+    role: postdoc
+    status: current
+    topic: Postdoctoral researcher — Projet XAI-BATMAN
+    topic_en: Postdoctoral researcher — XAI-BATMAN Project
+    with: ''
+    years: '2023'
+    link: https://www.linkedin.com/in/franco-giustozzi-3a1185138/
